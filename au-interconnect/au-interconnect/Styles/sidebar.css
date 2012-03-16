@@ -1,0 +1,19 @@
+/*@import url(https://fp.auburn.edu/template/styles/mainSidebar.css);*/
+
+/*****  General Page Formatting **************************/
+body {background:#f4f4f4 url(https://fp.auburn.edu/template/styles/images/bodyBackground2.png) top center repeat-x;}
+
+/**************  Header Section **************************/
+#headerWrap{height:140px;}
+#header { height:110px;}
+#headerTitle { background:none; height:94px; position:relative; width:730px; }
+#logo{margin-top:20px;}
+#searchForm{ height:20px; margin-top:-2px; padding-left:5px; position:absolute; right:0; top:3px; width:179px;}
+.searchBox { background: url(https://fp.auburn.edu/template/styles/images/searchField3.png) center center no-repeat; height:18px; text-align:left;}
+.searchField { background-color:transparent; border:none; color:gray; font-size:9px; height:15px; letter-spacing:normal; line-height:10px; outline:none; margin:2px 0 0 7px; padding:0; }
+.searchButton { position:absolute; right:3px; top:3px; }
+.titleArea { bottom:0; color:#fff; font-family:Verdana, Geneva, sans-serif; font-size:24px; right:0; position:absolute; text-align:right;}
+  
+/**************  Content Section *************************/
+.contentDivision { display:block; float:right; padding:0 20px 20px 20px; position:relative; width:688px; }
+

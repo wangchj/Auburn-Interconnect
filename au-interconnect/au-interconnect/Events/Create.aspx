@@ -25,32 +25,90 @@ td
 }
 </style>
 
-<script type="text/javascript" src="../Scripts/jquery-1.5.1.min.js"></script>
 <script type="text/javascript" src="../Scripts/jquery-ui-1.8.15.custom.min.js"></script>
 <script type="text/javascript" src="../Scripts/jquery-ui-timepicker-addon.js"></script>
 <script type="text/javascript" src="../Scripts/jquery.maskedinput-1.3.min.js"></script>
+<script type="text/javascript" src="../Scripts/jquery.dateFormat-1.0.js"></script>
 
 <!-- qtip 2 -->
 <link rel="Stylesheet" type="text/css" href="../Styles/jquery.qtip.min.css" />
 <script type="text/javascript" src="../Scripts/jquery.qtip.min.js"></script>
 
 <script language="javascript" type="text/javascript">
+    var startTimeCtrId = '#<%= StartTimeCtr.ClientID %>';
+    var endTimeCtrId = '#<%= EndTimeCtr.ClientID %>';
+    var regDeadlineCtrId = '#<%= RegDeadlineCtr.ClientID %>';
+    var meetTimeCtrId = '#<%= MeetTime.ClientID %>';
+    var deadlineGap = 2;
+    var dateFormat = 'MM/dd/yyyy hh:mm a';
     $(function () {
-        $('#<%= StartTimeCtr.ClientID %>').datetimepicker(
+        $(startTimeCtrId).datetimepicker(
         {
             ampm: true,
-            stepMinute: 15
+            stepMinute: 15,
+
+            onClose: function (dateText, inst) {
+
+                var startDate = new Date(dateText);
+
+                //Check end time
+                var endDateTextBox = $(endTimeCtrId);
+                if (endDateTextBox.val() != '') {
+                    var endDate = new Date(endDateTextBox.val());
+                    if (startDate > endDate)
+                        endDateTextBox.val(dateText);
+                }
+                else {
+                    endDateTextBox.val(dateText);
+                }
+
+                //Check registration deadline.
+                //Move deadline date deadlineGap days before start date.
+                var deadlineTextBox = $(regDeadlineCtrId);
+                var d = new Date(startDate);
+                d.setDate(d.getDate() - deadlineGap);
+                deadlineTextBox.val($.format.date(d, dateFormat));
+
+                //Meeting Time
+                $(meetTimeCtrId).val(dateText);
+
+            }
         });
-        $('#<%= EndTimeCtr.ClientID %>').datetimepicker({ ampm: true, stepMinute: 15});
-        $('#<%= RegDeadlineCtr.ClientID %>').datetimepicker({ ampm: true, stepMinute: 15 });
-        $('#<%= MeetTime.ClientID %>').datetimepicker({ ampm: true, stepMinute: 15 });
+        $(endTimeCtrId).datetimepicker({
+            ampm: true,
+            stepMinute: 15,
+
+            onClose: function (dateText, inst) {
+                var startDateTextBox = $(startTimeCtrId);
+                if (dateText == '') { }
+                else if (startDateTextBox.val() == '') {
+                    //Set start time
+                    startDateTextBox.val(dateText);
+                    //Set reg deadline
+                    var d = new Date(startDateTextBox.val());
+                    d.setDate(d.getDate() - deadlineGap);
+                    $(regDeadlineCtrId).val($.format.date(d, dateFormat));
+                    //Set meeting time
+                    $(meetTimeCtrId).val(dateText);
+                }
+                else {
+                    var startDate = new Date(startDateTextBox.val());
+                    var endDate = new Date(dateText);
+                    if (endDate < startDate) {
+                        $(endTimeCtrId).val($(startDateTextBox).val());
+                    }
+                }
+            }
+        });
+        $(regDeadlineCtrId).datetimepicker({ ampm: true, stepMinute: 15 });
+        $(meetTimeCtrId).datetimepicker({ ampm: true, stepMinute: 15 });
         $('#<%= HostPhone.ClientID %>').mask("(999) 999-9999");
 
         //qtip
         $('.fieldName').qtip(
-        { 
-            content: {attr: 'alt'},
-            position: {my: 'left center', at: 'right center'}
+        {
+            content: { attr: 'alt' },
+            position: { my: 'left center', at: 'right center' }
         });
     });
 </script>

@@ -1,0 +1,44 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/AULayout1.master" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="AUInterconnect.admin.Admin" %>
+<%@ Import Namespace="AUInterconnect" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="title" runat="server">
+<asp:ContentPlaceHolder ID="title" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="HeadContent" runat="server">
+<asp:ContentPlaceHolder ID="HeadCount" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+<%--
+<asp:Content ID="Content3" ContentPlaceHolderID="TopHorizontalMenu" runat="server">
+<table class="nav">
+<tr>
+<td><asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Default.aspx">Home</asp:HyperLink></td>
+        <td><asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Events/UpcomingEvents.aspx">Upcoming Events</asp:HyperLink></td>
+        <td><asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/Events/Create.aspx">Propose An Event</asp:HyperLink></td>
+        <td><asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/Events/PastEvents.aspx">Past Events</asp:HyperLink></td>
+        <td><asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/Volunteers.aspx">Community Volunteers</asp:HyperLink></td>
+</tr>
+</table>
+</asp:Content>--%>
+
+<asp:Content ID="Content4" ContentPlaceHolderID="breadcrumb" runat="server"></asp:Content>
+
+<asp:Content ID="Content5" ContentPlaceHolderID="MainContent" runat="server">
+<asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+
+<asp:Content ID="Content6" ContentPlaceHolderID="sidebar" runat="server">
+    <div class="groupName">Events</div>
+      <a href="<%= RequestUtil.AppPath(this.Request) + "admin/Events/ActiveEvents.aspx"%>">Events Now</a>
+      <a href="<%= RequestUtil.AppPath(this.Request) + "admin/Events/UpcomingEvents.aspx"%>">Upcoming Events</a>
+      <a href="<%= RequestUtil.AppPath(this.Request) + "admin/Events/UnapprovedEvents.aspx"%>">Unapproved Events</a>
+      <a href="<%= RequestUtil.AppPath(this.Request) + "admin/Events/PastEvents.aspx"%>">Past Events</a>
+      <a href="<%= RequestUtil.AppPath(this.Request) + "admin/Events/DeclinedEvents.aspx"%>">Declined Events</a>
+    <div class="groupName">Users</div>
+        <a href="<%= RequestUtil.AppPath(this.Request) + "admin/Users"%>">All Users</a>
+    <a style="padding-left:15px;margin-top:10px;font-weight:bold;" href="<%= RequestUtil.AppPath(this.Request) + "admin"%>">Dashboard</a>
+        <div style="height:100px"></div>
+</asp:Content>
+
+<asp:Content ID="Content7" ContentPlaceHolderID="lastUpdated" runat="server">
+</asp:Content>

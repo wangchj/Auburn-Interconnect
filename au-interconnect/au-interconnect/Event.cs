@@ -141,5 +141,116 @@ namespace AUInterconnect
                 return ((int)obj >= 1);
             }
         }
+
+        /// <summary>
+        /// Set the approved to true and declined to false for an event.
+        /// </summary>
+        /// <param name="eventId">The ID of the event.</param>
+        public static void ApproveEvent(int eventId)
+        {
+            string queryStr = "UPDATE [Events] SET approved=1, declined=0 " +
+                "WHERE eventId=@eventId";
+            using (SqlConnection con = new SqlConnection(Config.SqlConStr))
+            {
+                SqlCommand command = new SqlCommand(queryStr, con);
+                command.Parameters.Add(new SqlParameter("eventId", eventId));
+                con.Open();
+                command.ExecuteNonQuery();
+            }
+        }
+
+        /// <summary>
+        /// Set the approved to false and declined to true for an event.
+        /// </summary>
+        /// <param name="eventId">The ID of the event.</param>
+        public static void DeclineEvent(int eventId)
+        {
+            string queryStr = "UPDATE [Events] SET approved=0, declined=1 " +
+                "WHERE eventId=@eventId";
+            using (SqlConnection con = new SqlConnection(Config.SqlConStr))
+            {
+                SqlCommand command = new SqlCommand(queryStr, con);
+                command.Parameters.Add(new SqlParameter("eventId", eventId));
+                con.Open();
+                command.ExecuteNonQuery();
+            }
+        }
+
+        /// <summary>
+        /// Get the total number of events in the Events table.
+        /// </summary>
+        /// <returns>Count</returns>
+        public static int GetTotalEventCount()
+        {
+            string queryStr = "SELECT COUNT(*) FROM [Events]";
+            using (SqlConnection con = new SqlConnection(Config.SqlConStr))
+            {
+                SqlCommand command = new SqlCommand(queryStr, con);
+                con.Open();
+                object obj = command.ExecuteScalar();
+                return (int)obj;
+            }
+        }
+
+        /// <summary>
+        /// Get the total number of events that are happening now.
+        /// </summary>
+        /// <returns>Event count</returns>
+        public static int GetActiveEventCount()
+        {
+            string queryStr = "SELECT COUNT(*) FROM [Events] " +
+                "WHERE startTime < {fn now()} AND endTime >= {fn now()} AND " +
+                "approved=1 AND declined=0";
+            using (SqlConnection con = new SqlConnection(Config.SqlConStr))
+            {
+                SqlCommand command = new SqlCommand(queryStr, con);
+                con.Open();
+                object obj = command.ExecuteScalar();
+                return (int)obj;
+            }
+        }
+
+        /// <summary>
+        /// Get the number of approved upcoming events.
+        /// </summary>
+        /// <returns>Event count</returns>
+        public static int GetUpcomingEventCount()
+        {
+            string queryStr = "SELECT COUNT(*) FROM [Events] " +
+                "WHERE startTime > {fn now()} AND approved=1 AND declined=0";
+            using (SqlConnection con = new SqlConnection(Config.SqlConStr))
+            {
+                SqlCommand command = new SqlCommand(queryStr, con);
+                con.Open();
+                object obj = command.ExecuteScalar();
+                return (int)obj;
+            }
+        }
+
+        public static int GetUpcomingUnapprovedEventCount()
+        {
+            string queryStr = "SELECT COUNT(*) FROM [Events] " +
+                "WHERE startTime > {fn now()} AND approved=0 AND declined=0";
+            using (SqlConnection con = new SqlConnection(Config.SqlConStr))
+            {
+                SqlCommand command = new SqlCommand(queryStr, con);
+                con.Open();
+                object obj = command.ExecuteScalar();
+                return (int)obj;
+            }
+        }
+
+        public static int GetAllDeclinedEventCount()
+        {
+            string queryStr = "SELECT COUNT(*) FROM [Events] " +
+                "WHERE approved=0 AND declined=1";
+            using (SqlConnection con = new SqlConnection(Config.SqlConStr))
+            {
+                SqlCommand command = new SqlCommand(queryStr, con);
+                con.Open();
+                object obj = command.ExecuteScalar();
+                return (int)obj;
+            }
+        }
     }
 }

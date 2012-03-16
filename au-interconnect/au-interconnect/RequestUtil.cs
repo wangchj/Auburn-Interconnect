@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.UI;
 
 namespace AUInterconnect
 {
@@ -20,6 +21,28 @@ namespace AUInterconnect
                 eid = DevConf.DebugEventId;
 #endif
             return eid;
+        }
+
+        /// <summary>
+        /// Returns the application path with / appended at the end.
+        /// </summary>
+        /// <param name="page">The current request page.</param>
+        /// <returns>The application path</returns>
+        public static string AppPath(Page page)
+        {
+            return AppPath(page.Request);
+        }
+
+        /// <summary>
+        /// Returns the application path with / appended at the end.
+        /// </summary>
+        /// <param name="request">The current request.</param>
+        /// <returns>The application path</returns>
+        public static string AppPath(HttpRequest request)
+        {
+            if (request.ApplicationPath.EndsWith("/"))
+                return request.ApplicationPath;
+            return request.ApplicationPath + "/";
         }
     }
 }

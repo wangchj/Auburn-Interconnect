@@ -1,0 +1,140 @@
+/*****  Flatline For Cross-Browser Uniformity ***************************/
+* { margin:0; padding:0 }
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, caption,article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video { margin:0; padding:0; border:0; outline:0; font-size:100%; background:transparent; }
+table, tbody, tfoot, thead, tr, th, td{margin:0; padding:0; border:0; outline:0; font-size:100%;}
+article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary { display:block; }
+nav ul { list-style:none; }
+blockquote, q { quotes:none; }
+blockquote:before, blockquote:after, q:before, q:after { content:''; content:none; }
+a { margin:0; padding:0; border:0; font-size:100%; vertical-align:baseline; background:transparent; text-decoration:none;}
+ins { background-color:#ff9; color:#000; text-decoration:none; }
+mark { background-color:#ff9; color:#000; font-style:italic; font-weight:bold; }
+del { text-decoration: line-through; }
+abbr[title], dfn[title] { border-bottom:1px dotted #000; cursor:help; }
+table { border-collapse:collapse; border-spacing:0; }
+hr { display:block; height:1px; border:0; border-top:1px solid #cccccc; margin:1em 0; padding:0; }
+input, select { vertical-align:middle; }
+ul, ol, li { list-style:none; margin:0; padding:0; }
+:link, :visited, :hover { text-decoration:none; }
+u:hover{text-decoration:underline;}
+a img, :link img, :visited img { border:none; text-decoration:none; }
+a:active, a:focus { outline:none; }
+address { font-style:normal; }
+
+/*****  General Page Formatting ***************************************/
+body { background:#f4f4f4 url(https://fp.auburn.edu/template/styles/images/bodyBackground.png) top center repeat-x; font-family:verdana, arial, helvetica, sans-serif; font-size:12px; margin:0; padding:0; }
+a { border-bottom:none; color:#496e9c; /*e6ecf3; color:#03244d;*/ text-decoration:none; }
+a:hover { border-bottom:1px solid #496e9c; color:#dd550c; /*496e9c*/}
+blockquote {margin-left:25px;}
+h1 { border-bottom:#ccc 1px solid; font:2.2em "Lucida Grande","Lucida Sans Unicode",Arial,Verdana,sans-serif; line-height:normal; margin-bottom:5px; }
+h2 { font:2.0em "Lucida Grande","Lucida Sans Unicode",Arial,Verdana,sans-serif; line-height:normal; }
+h3 { font:1.7em "Lucida Grande","Lucida Sans Unicode",Arial,Verdana,sans-serif; line-height:normal; }
+h4 { font:1.5em "Lucida Grande","Lucida Sans Unicode",Arial,Verdana,sans-serif; line-height:normal; }
+h5 { font:1.2em "Lucida Grande","Lucida Sans Unicode",Arial,Verdana,sans-serif; line-height:normal; }
+h6 { border-bottom:#03244d 1px solid; color:#03244d; display:block; font:1.2em "Lucida Grande","Lucida Sans Unicode",Arial,Verdana,sans-serif; font-weight:600; line-height:normal; margin-bottom:10px; text-align:left; }
+p { font-size:12px; line-height:normal; padding-bottom:13px; }
+pre { color:#666; font-family:"Courier New", Courier, monospace; font-size:12px; line-height:1.5em; margin-left:30px; padding-bottom:13px; }
+ol { padding-left:20px; padding-bottom:13px; }
+ol li { line-height:1.3em; list-style:decimal; font-size:11px; margin:5px 15px; padding:0 0 3px 8px; }
+ol li ol, ol li ul { padding-bottom:0;}
+ol li ol li { list-style:lower-alpha; padding-bottom:0; }
+ol li ol li ol li {list-style:lower-roman; padding-bottom:0;}
+ul {margin:0; padding-bottom:13px; }
+ul li { background:url(https://fp.auburn.edu/template/styles/images/bulletArrow2.gif) left 4px no-repeat; line-height:1.3em; list-style:none; font-size:11px; margin:5px 15px; padding:0 0 3px 8px; }
+ul li a { margin:0; padding:0; }
+ul li ul, ul li ol { padding-bottom:0; }
+ul li ul li { background:url(https://fp.auburn.edu/template/styles/images/bulletArrow.gif) left 4px no-repeat; padding-bottom:0; }
+table tr td, table tr th{padding:5px;}
+#pageWrap { display:block; margin:0 auto; padding:0; position:relative; width:950px; }
+
+/*****  Miscellaneous Styles *********************************/
+.block{ display:block; }
+.blue{ color:#03244d; }
+.blueHeader { background:url(https://fp.auburn.edu/template/styles/images/sidebarH1reverse.jpg) center center #496e9c repeat-x; border-bottom:#c0c0c0 solid 1px; color:#fff; font-size:1.5em; height:25px; padding-top:5px; text-indent:12px; width:100%;}
+.clear { clear:both; }
+.halves { width:50%; }
+.lastUpdated {clear:both;font-size :9px; font-style:italic; text-align:right;}
+.left {float:left;}
+.listColumns ul { float:left; }
+.midContent { border-right:#ddd 1px solid; float:left; margin:10px 0 0 0; min-height:333px; padding:10px 25px 0 25px; width:425px; }
+.mobi { display:none; width:0; height:0; overflow:hidden; left:-99999px; float:left; }
+.more { background:url(https://fp.auburn.edu/template/styles/images/bulletArrow.gif) right 4px no-repeat; font-family:Verdana, Geneva, sans-serif; font-size:10px; font-weight:bold; padding-right:10px; padding-bottom:20px; text-align:right; }
+.more a:hover{ color:#496e9c; }
+.newsItem { background:url(https://fp.auburn.edu/template/styles/images/bulletArrow2.gif) left 8px no-repeat; line-height:20px; margin-left:10px; padding:0 0 17px 12px; }
+.noBorder { border:none; }
+.orange{ color:#dd550c; }
+.orangeDecorBar { background-color: #f9903f; font-size: 1px; height: 2px; margin:20px auto; text-align:center; width:185px; }
+.quarters { width:25%; }
+.right {float:right;}
+.rss { border-bottom:none; float:right; margin: -27px 0px 0px; }
+.thirds { width:33%; }
+#toTopWrap{position:fixed; bottom:25px; left:0; width:100%;z-index:3000;}
+#toTopWrap a{border-bottom:none;}
+#toTop{width:1120px; margin:0 auto;}
+.toTopImage{float:right;}
+.weather { font-weight:bold; padding:5px 0 0 0; text-align:center; }
+
+/**************  Header Section ******************************/
+#headerWrap { display:block; float:left; height:120px; width:950px; }
+#header { color:#4e75a6; display:block; float:left; height:90px; margin:0; overflow:hidden; padding:0; position:relative; width:950px; }
+#logo { float:left; width:220px; }
+.aulogo { border:none; text-decoration:none; }
+#headerTitle { background:url(https://fp.auburn.edu/template/images/headerTemplate.png) top center no-repeat; float:left; height:90px; min-width:730px; width:730px; }
+.topLinks  { font-family:Verdana, Arial, Helvetica, sans-serif; font-size:9px; line-height:normal; list-style:none; margin-top:3px; padding:0; position:absolute; right:185px; text-align:right; top:0; }
+.topLinks a, .topLinks a:hover, .topLinks a:visited {color:#496e9c;}
+.mainHeading{display:block;}
+.subHeading{display:block; font-size:16px; padding-top:5px;}
+.mainHeading a, .subHeading a{border-bottom:none; color:#fff;}
+
+/**************  Search Section ******************************/
+.searchArea { float:right; height:51px; margin-top:25px; overflow:hidden; padding:2px 6px 4px 6px; width:270px; }
+.searchArea p { font-family:Verdana, Arial, Helvetica, sans-serif; font-size:11px; padding:3px 0 10px 0; text-align:center; }
+.searchArea a { color:#f4f4f4; border-bottom:none; }
+.searchArea a:hover { border-bottom:#f4f4f4 1px solid; }
+#searchForm { }
+.searchBox { background: url(https://fp.auburn.edu/template/styles/images/searchField.png) center center no-repeat; height:18px; }
+.searchField { background-color:transparent; border:none; color:gray; font-size:11px; letter-spacing:.1em; height:15px; margin:1px 0 0 20px; outline:none; padding:1px; }
+.searchButton { position:absolute; right:18px; bottom:20px; }
+
+/**************  Navigation Section **************************/
+.nav { border-collapse:collapse; border-left:#f68026 1px solid; float:left; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:13px; height:27px; margin:0 0 3px 0; padding:0; text-align:center; text-transform:uppercase; width:950px; }
+.nav tr, .nav tr td { border-spacing:0; padding:0; }
+.nav a, .nav tr td a { border-bottom:none; border-right:#f68026 1px solid; color:#fff; display:block; margin:0; padding:7px 18px; white-space:nowrap;}
+.nav a:hover, .nav tr td a:hover { background-color:#f38025; color:#fff; }
+
+/**************  Breadcrumbs and Search Section **************************/
+.breadcrumb { font-size:.8em; padding:10px 0; }
+
+/**************  Content Section ***************************/
+#contentArea { background-color: #fff; border-left:#d7d7d7 1px solid; border-right:#d7d7d7 1px solid; display:block; float:left; position:relative; width:948px; }
+#contentArea_bottom { background:url(https://fp.auburn.edu/template/styles/images/content_bottom_bg.png) center center no-repeat; float:left; height:18px; margin-bottom:15px; position:relative; width:950px; }
+.contentDivision { float:right; padding:10px 20px 0 10px; width:688px; }
+
+/**************  Calendar Section **************************/
+#calendar { float:right; font-family:Arial, Helvetica, sans-serif; margin:10px 10px 0 0; padding-top:10px; width:245px; }
+.cItem { float:left; margin-bottom:10px; padding-bottom:5px; width:235px; }
+.cDate { background:url(https://fp.auburn.edu/template/styles/images/calendarBg.png) top left no-repeat; float:left; height:57px; position:relative; width:48px; }
+.cDate > p { text-align:center; color:#9b9b8e; margin:18px 0 0 1px; text-transform:uppercase; }
+.cDate span.cMonth { color:#666; display:block; font-size:10px; font-weight:bold; line-height:10px; }
+.cDate span.cDay { color:#666; display:block; font-size:20px; padding-top:3px; }
+.cEvent { float:right; width:180px; }
+.cTitle { line-height:1.5em; margin:3px 5px 5px 0; }
+.cTime { color:#dd550c; font-size:.8em; text-align:right; }
+
+/**************  Footer Section ****************************/
+#footerWrap { background:url(https://fp.auburn.edu/template/styles/images/footer.png) top left no-repeat; color:#f4f4f4; display:block; float:left; font-size:8pt; margin:0 auto; padding:92px 0 0 0; width:950px; }
+#footer { background-color:#03244d; margin:0; overflow:hidden; padding:18px 0 0 0; width:100%; }
+#footer a, #footer a:visited { border-bottom:none; color:#f4f4f4; }
+#footer a:hover, #footer a:active { border-bottom:#f4f4f4 1px solid; color:#f4f4f4; }
+#footer .footSection { border-right:#4E75A6 1px solid; float:left; line-height:12px; min-height:50px; padding:0 15px 5px 15px; text-align:center; width:285px; }
+#footer .footSection ul {padding:0;}
+#footer .footSection ul li { background:none; padding-bottom:6px; list-style:none; margin:0; }
+#footer p.social { margin-top:10px; }
+#footer .noBorder { border:none; }
+.socialDetails { background:url(https://fp.auburn.edu/template/images/social/socialBG.png) 0 -127px no-repeat; height:22px; margin:0 auto; padding:0; width:200px; }
+#footer a.social:hover { border-bottom:none; }
+#footer .footSection p { text-align:center; }
+#subfooter { background:url(https://fp.auburn.edu/template/styles/images/subFooterBG.png) top center no-repeat #f4f4f4; border-top:#dd550c 1px solid; clear:both; color:#03244d; line-height:18px; padding:15px 0 10px 0; text-align:center; width:950px; }
+#subfooter a, #subfooter a:hover, #subfooter a:visited { color:#03244d; }
+#subfooter a:hover{border-bottom:#03244d 1px solid;}
+#subfooter a.last { border-right:none; }

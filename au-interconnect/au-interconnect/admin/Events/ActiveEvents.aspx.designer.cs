@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AUInterconnect.Events
+namespace AUInterconnect.admin.Events
 {
 
 
-    public partial class Test
+    public partial class ActiveEvents
     {
     }
 }

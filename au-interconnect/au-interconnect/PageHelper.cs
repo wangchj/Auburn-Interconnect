@@ -81,6 +81,22 @@ namespace AUInterconnect
         }
 
         /// <summary>
+        /// Requires the user to be logged in as an admin.
+        /// </summary>
+        /// <param name="page">Page instance for redirection</param>
+        /// <param name="checkStudent">Login page should check for
+        /// Auburn student</param>
+        /// <returns>User object if user is an admin; redirect to home page if the
+        /// user is not an admin; null if error occurred.</returns>
+        public static User LoginAsAdmin(Page page, bool checkStudent)
+        {
+            User user = Login(page, checkStudent);
+            if (!user.IsAdmin)
+                Nav.GoHome(page);
+            return user;
+        }
+
+        /// <summary>
         /// Gets the current logged in user; else null.
         /// </summary>
         /// <param name="page">The current page</param>

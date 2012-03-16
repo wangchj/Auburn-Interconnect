@@ -7,72 +7,63 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AUInterconnect.admin {
+namespace AUInterconnect.admin.Users {
     
     
-    public partial class UserManagement {
+    public partial class Default {
         
         /// <summary>
-        /// errorLit control.
+        /// ErrorMessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal errorLit;
+        protected global::System.Web.UI.WebControls.Literal ErrorMessage;
         
         /// <summary>
-        /// filterLst control.
+        /// FirstNameTextbox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList filterLst;
+        protected global::System.Web.UI.WebControls.TextBox FirstNameTextbox;
         
         /// <summary>
-        /// filterTxb control.
+        /// LastNameTextbox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox filterTxb;
+        protected global::System.Web.UI.WebControls.TextBox LastNameTextbox;
         
         /// <summary>
-        /// filterBtn control.
+        /// EmailTextbox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button filterBtn;
+        protected global::System.Web.UI.WebControls.TextBox EmailTextbox;
         
         /// <summary>
-        /// clearBtn control.
+        /// GridView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button clearBtn;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
         
         /// <summary>
-        /// userTbl control.
+        /// SqlDataSource1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table userTbl;
-        
-        /// <summary>
-        /// headerRow control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TableRow headerRow;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
     }
 }

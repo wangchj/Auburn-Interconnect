@@ -236,5 +236,30 @@ namespace AUInterconnect
             }
         }
 
+        public static int GetAllUserCount()
+        {
+            string queryStr = "SELECT COUNT(*) FROM Users";
+            using (SqlConnection con = new SqlConnection(Config.SqlConStr))
+            {
+                SqlCommand command = new SqlCommand(queryStr, con);
+                con.Open();
+                object obj = command.ExecuteScalar();
+                return (int)obj;
+            }
+        }
+
+        public static void UpdateAdmin(int userId, bool isAdmin)
+        {
+            string queryStr = "UPDATE Users SET admin=@admin WHERE uid=@uid";
+            using (SqlConnection con = new SqlConnection(Config.SqlConStr))
+            {
+                SqlCommand command = new SqlCommand(queryStr, con);
+                command.Parameters.Add(new SqlParameter("admin", isAdmin));
+                command.Parameters.Add(new SqlParameter("uid", userId));
+                con.Open();
+                command.ExecuteNonQuery();
+            }
+        }
+
     }
 }

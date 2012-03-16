@@ -4,19 +4,10 @@
 #contentArea_bottom { background:url(https://fp.auburn.edu/template/styles/images/content_bottom_bg2.png) center center no-repeat; }
 
 /**************  Sidebar Section **************************/
-.sidebar { background:url(https://fp.auburn.edu/template/styles/images/sidebarBlueGrad.png) #496e9c center bottom repeat-x; border-top:none; display:block; float:left; width:220px;}
-.sidebar a { border-bottom:none; color:#fff; display:block; padding:6px 25px; }
+.sidebar { background:url(https://fp.auburn.edu/template/styles/images/sidebarBlueGrad.png) #496e9c center bottom repeat-x; border-top:none; display:block; float:left; width:220px; }
+.sidebar a { border-bottom:none; color:#fff; display:block; padding:6px 10px; }
 .sidebar a:hover { background: none #03244d; border-bottom:none; }
 .sidebar a.last { border-bottom:none; padding-bottom:10px; }
 .sidebar .sidebarTitle { color:#fff; font-size:1.2em; font-weight:bold; margin-bottom:2px; padding-bottom:0; text-align:center; text-transform:uppercase; }
 .sidebar h1 { background:url(https://fp.auburn.edu/template/styles/images/sidebarH1.jpg) bottom center repeat-x; color:#fff; font-family: Arial, Helvetica, sans-serif; font-size:1.6em; padding:10px 2px 10px 10px; text-transform:uppercase; }
 
-.sidebar .groupName
-{
-	color:#ffffff;
-	font-weight:bold;
-	margin-bottom:2px;
-	padding:15px;
-	text-transform:uppercase;
-	padding-bottom:5px;
-}

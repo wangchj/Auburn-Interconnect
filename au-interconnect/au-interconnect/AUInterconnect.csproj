@@ -59,8 +59,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
-    <Content Include="admin\EventApproval.aspx" />
-    <Content Include="admin\UserManagement.aspx" />
+    <Content Include="admin\Default.aspx" />
+    <Content Include="admin\Events\ActiveEvents.aspx" />
+    <Content Include="admin\Events\Default.aspx" />
+    <Content Include="admin\Events\UpcomingEvents.aspx" />
+    <Content Include="admin\Events\DeclinedEvents.aspx" />
+    <Content Include="admin\Events\EventDetails.aspx" />
+    <Content Include="admin\Events\PastEvents.aspx" />
+    <Content Include="admin\Events\Roster.aspx" />
+    <Content Include="admin\Events\TestUnapprovedEvents.aspx" />
+    <Content Include="admin\Events\UnapprovedEvents.aspx" />
+    <Content Include="admin\Users\Default.aspx" />
     <Content Include="Connect\EventRoster.aspx" />
     <Content Include="Connect\MyEvents.aspx" />
     <Content Include="EventEntryCntrl.ascx" />
@@ -154,19 +163,96 @@
     <Compile Include="About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
-    <Compile Include="admin\EventApproval.aspx.cs">
-      <DependentUpon>EventApproval.aspx</DependentUpon>
+    <Compile Include="admin\Admin.master.cs">
+      <DependentUpon>Admin.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="admin\EventApproval.aspx.designer.cs">
-      <DependentUpon>EventApproval.aspx</DependentUpon>
+    <Compile Include="admin\Admin.master.designer.cs">
+      <DependentUpon>Admin.master</DependentUpon>
     </Compile>
-    <Compile Include="admin\UserManagement.aspx.cs">
-      <DependentUpon>UserManagement.aspx</DependentUpon>
+    <Compile Include="admin\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="admin\UserManagement.aspx.designer.cs">
-      <DependentUpon>UserManagement.aspx</DependentUpon>
+    <Compile Include="admin\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\Events\ActiveEvents.aspx.cs">
+      <DependentUpon>ActiveEvents.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Events\ActiveEvents.aspx.designer.cs">
+      <DependentUpon>ActiveEvents.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\Events\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Events\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\Events\UpcomingEvents.aspx.cs">
+      <DependentUpon>UpcomingEvents.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Events\UpcomingEvents.aspx.designer.cs">
+      <DependentUpon>UpcomingEvents.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\Events\AdminEvents.master.cs">
+      <DependentUpon>AdminEvents.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Events\AdminEvents.master.designer.cs">
+      <DependentUpon>AdminEvents.master</DependentUpon>
+    </Compile>
+    <Compile Include="admin\Events\DeclinedEvents.aspx.cs">
+      <DependentUpon>DeclinedEvents.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Events\DeclinedEvents.aspx.designer.cs">
+      <DependentUpon>DeclinedEvents.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\Events\EventDetails.aspx.cs">
+      <DependentUpon>EventDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Events\EventDetails.aspx.designer.cs">
+      <DependentUpon>EventDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\Events\PastEvents.aspx.cs">
+      <DependentUpon>PastEvents.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Events\PastEvents.aspx.designer.cs">
+      <DependentUpon>PastEvents.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\Events\Roster.aspx.cs">
+      <DependentUpon>Roster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Events\Roster.aspx.designer.cs">
+      <DependentUpon>Roster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\Events\TestUnapprovedEvents.aspx.cs">
+      <DependentUpon>TestUnapprovedEvents.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Events\TestUnapprovedEvents.aspx.designer.cs">
+      <DependentUpon>TestUnapprovedEvents.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\Events\UnapprovedEvents.aspx.cs">
+      <DependentUpon>UnapprovedEvents.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Events\UnapprovedEvents.aspx.designer.cs">
+      <DependentUpon>UnapprovedEvents.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\Users\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Users\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="AULayout1.Master.cs">
       <DependentUpon>AULayout1.master</DependentUpon>
@@ -429,6 +515,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AULayout1.master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="admin\Admin.master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="admin\Events\AdminEvents.master" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

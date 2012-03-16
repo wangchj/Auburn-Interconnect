@@ -128,6 +128,7 @@
         </div>
       </div>
     </div>
+    <asp:ContentPlaceHolder ID="TopHorizontalMenu" runat="server">
 		<table class="nav">
       <tr>
         <td><asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Default.aspx">Home</asp:HyperLink></td>
@@ -137,6 +138,7 @@
         <td><asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/Volunteers.aspx">Community Volunteers</asp:HyperLink></td>
       </tr>
     </table>
+    </asp:ContentPlaceHolder>
   </div>
   <div id="contentArea">
     <div class="contentDivision"> 
