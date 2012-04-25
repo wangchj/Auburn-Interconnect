@@ -1,0 +1,90 @@
+<style type="text/css">
+div, span,p {font-family: Helvetica,arial;}
+
+.sec
+{
+	margin:10px 5px;
+	/*line-height:170%;*/
+}
+.seclab
+{
+	font-size:1.3em;
+	font-weight:bold;
+}
+
+.field_inline
+{
+	display:inline;
+	
+	font-size:1em;
+	font-family: Helvetica,arial;
+	color:#444;
+	text-shadow: 1px 1px 0px #fff;
+	
+	background: #F3F3F3;
+	
+	border: 1px solid #E6E6E6;
+	border-radius: 3px;
+	
+	padding:2px 2px 4px 2px;
+	
+	-moz-box-shadow:    1px 1px 0px 0px #ccc;
+	-webkit-box-shadow: 1px 1px 0px 0px #ccc;
+	box-shadow:         1px 1px 0px 0px #ccc;
+}
+
+.field_block
+{
+	display:block;
+	font-size:1em;
+	font-family: Helvetica,arial;
+	color:#444;
+	text-shadow: 1px 1px 0px #fff;
+	
+	background: #F3F3F3;
+	
+	border: 1px solid #E6E6E6;
+	border-radius: 3px;
+	
+	padding:2px 2px 4px 2px;
+	
+	-moz-box-shadow:    1px 1px 0px 0px #ccc;
+	-webkit-box-shadow: 1px 1px 0px 0px #ccc;
+	box-shadow:         1px 1px 0px 0px #ccc;
+}
+
+.field_block p
+{
+	background-color:#eeeeee;
+	margin:0px;
+	padding:0px;
+}
+
+</style>
+
+<p style="text-align: center; margin: 0px;"><span style="font-size: 24pt; font-weight: bold;">[EventName]</span></p>
+
+<div id="EventOrg" class="sec"><span class="seclab">Host Organization</span><br /><span id="HostOrg" class="field">[HostOrg]</span></div>
+
+<div id="ContactSec" class="sec"><span class="seclab">Contact</span><br />
+<div id="ContactName" class="field_inline">[ContactName]</div>&nbsp;<div id="Phone" class="field_inline">[ContactPhone]</div><br />
+<div id="Email" class="field_inline">[ContactEmail]</div>
+</div>
+
+<div class="sec"><span class="seclab">Description</span><br /><div id="EventDesc" class="field_block"><p>[EventDescription]</p></div></div>
+
+<div class="sec"><span class="seclab">Date and Time</span><br /><div id="StartTime" class="field_inline">[StartTime]</div>&nbsp;-&nbsp;<div id="EndTime" class="field_inline">[EndTime]</div></div>
+
+<div id="Meet" class="sec"><span class="seclab">Meeting Time and Location</span><br /><div id="MeetTime" class="field_inline">[MeetTime]</div> at <div id="MeetLocation" class="field_inline">[MeetingLocation]</div></div>
+
+<div class="sec"><span class="seclab">Event Location</span><br /><div id="EventLocation" class="field_inline">[EventLocation]</div></div>
+
+<div class="sec"><span class="seclab">Transportation</span><br /><div id="Transport" class="field_block"><p>[Transporation]</p></div>
+<br />Requesting drivers: <div id="NeedDrivers" class="field_inline">[RequestDrivers]</div>
+</div>
+
+<div class="sec"><span class="seclab">Equipment</span><br /><div id="Equipment" class="field_block"><p>[Equipment]</p></div></div>
+<div class="sec"><span class="seclab">Food</span><br /><div id="Food" class="field_block"><p>[Food]</p></div></div>
+<div class="sec"><span class="seclab">Cost</span><br /><div id="Cost" class="field_block"><p>[Cost]</p></div></div>
+<div class="sec"><span class="seclab">Other Note</span><br /><div id="Other" class="field_block"><p>[Other]</p></div></div>
+<div class="sec"><span class="seclab">Limit</span><br /><div id="Capacity" class="field_inline">[EventCapacity]</div></div>

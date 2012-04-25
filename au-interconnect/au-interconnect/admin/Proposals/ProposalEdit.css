@@ -1,0 +1,49 @@
+﻿div, span,p {font-family: Helvetica,arial;}
+
+.sec
+{
+	margin:10px 5px;
+	/*line-height:170%;*/
+}
+.seclab
+{
+	font-size:1.3em;
+	font-weight:bold;
+}
+.field
+{	
+	font-size:1em;
+	font-family: Helvetica,arial;
+	color:#444;
+	text-shadow: 1px 1px 0px #fff;
+	
+	background: #F3F3F3;
+	
+	border: 1px solid #E6E6E6;
+	border-radius: 3px;
+	
+	padding:2px 2px 4px 2px;
+	
+	-moz-box-shadow:    1px 1px 0px 0px #ccc;
+	-webkit-box-shadow: 1px 1px 0px 0px #ccc;
+	box-shadow:         1px 1px 0px 0px #ccc;
+	
+}
+
+.inline
+{
+	display:inline;
+}
+
+.block
+{
+	display:block;
+}
+
+.field p.pa
+{
+    line-height:10px;
+    color:#FDFDFD;
+    background-color:#000000;
+    margin-top:0px;
+}

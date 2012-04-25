@@ -9,6 +9,7 @@ namespace AUInterconnect
     {
         public const int DebugEventId = 2;
         public const int DebugUserId = 1;
+        public const int DebugProposalId = 3;
 
         public static string DebugEventIdStr
         {

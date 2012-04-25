@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/AULayout1.master" AutoEventWireup="true"
     CodeBehind="Default.aspx.cs" Inherits="AUInterconnect._Default" %>
 
-<asp:Content ID="Title" runat="server" ContentPlaceHolderID="title">Auburn Interconnect</asp:Content>
+<asp:Content ID="Title" runat="server" ContentPlaceHolderID="title">Auburn InterConnect</asp:Content>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
@@ -12,7 +12,7 @@
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <h1>Welcome!</h1>
     <p>
-    Welcome to Auburn Interconnect. This site connects “local know how” of Auburn
+    Welcome to Auburn InterConnect. This site connects “local know how” of Auburn
     residents, students and faculty with “need to know how” of many international
     students at Auburn University.
     </p>
@@ -41,7 +41,7 @@
         <tr><td><img src="http://grad.auburn.edu/general/AUP_3804.JPG" /></td>
         <td style="vertical-align:top; line-height: 15px;">
             <b><a href="mailto:vininlj@auburn.edu">Leonard Vining</a></b><br />
-            Interconnect Coordinator<br />
+            InterConnect Coordinator<br />
             Graduate School <br />
             844-2143
         </td></tr>

@@ -28,6 +28,8 @@
 </asp:Content>
 
 <asp:Content ID="Content6" ContentPlaceHolderID="sidebar" runat="server">
+    <div class="groupName">Proposals</div>
+        <a href="<%= RequestUtil.AppPath(this.Request) + "admin/Proposals"%>">Proposals</a>
     <div class="groupName">Events</div>
       <a href="<%= RequestUtil.AppPath(this.Request) + "admin/Events/ActiveEvents.aspx"%>">Events Now</a>
       <a href="<%= RequestUtil.AppPath(this.Request) + "admin/Events/UpcomingEvents.aspx"%>">Upcoming Events</a>

@@ -24,6 +24,21 @@ namespace AUInterconnect
         }
 
         /// <summary>
+        /// Get Proposal ID from request object.
+        /// </summary>
+        /// <returns>-1 if event ID is not found.</returns>
+        public static int GetProposalId(HttpRequest request)
+        {
+            int id = -1;
+            int.TryParse(request[Const.ProposalId], out id);
+#if DEBUG
+            if (id == -1 || id == 0)
+                id = DevConf.DebugProposalId;
+#endif
+            return id;
+        }
+
+        /// <summary>
         /// Returns the application path with / appended at the end.
         /// </summary>
         /// <param name="page">The current request page.</param>

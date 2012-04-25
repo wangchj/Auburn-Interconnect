@@ -69,6 +69,10 @@
     <Content Include="admin\Events\Roster.aspx" />
     <Content Include="admin\Events\TestUnapprovedEvents.aspx" />
     <Content Include="admin\Events\UnapprovedEvents.aspx" />
+    <Content Include="admin\Proposals\content.css" />
+    <Content Include="admin\Proposals\Default.aspx" />
+    <Content Include="admin\Proposals\style.css" />
+    <Content Include="admin\Proposals\View.aspx" />
     <Content Include="admin\Users\Default.aspx" />
     <Content Include="Connect\EventRoster.aspx" />
     <Content Include="Connect\MyEvents.aspx" />
@@ -247,6 +251,20 @@
     <Compile Include="admin\Events\UnapprovedEvents.aspx.designer.cs">
       <DependentUpon>UnapprovedEvents.aspx</DependentUpon>
     </Compile>
+    <Compile Include="admin\Proposals\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Proposals\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\Proposals\View.aspx.cs">
+      <DependentUpon>View.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Proposals\View.aspx.designer.cs">
+      <DependentUpon>View.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admin\Users\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -280,6 +298,7 @@
     <Compile Include="DataModel\EventRoster.cs" />
     <Compile Include="DataModel\Host.cs" />
     <Compile Include="DataModel\PasswordReset.cs" />
+    <Compile Include="DataModel\Proposal.cs" />
     <Compile Include="DataModel\UserCredential.cs" />
     <Compile Include="DevConf.cs" />
     <Compile Include="Event.cs" />

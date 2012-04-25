@@ -11,5 +11,6 @@ namespace AUInterconnect
         public const string User = "user";
         public const string EventId = "EventId";
         public const string IsAuStudent ="IsAuStudent";
+        public const string ProposalId = "ProposalId";
     }
 }

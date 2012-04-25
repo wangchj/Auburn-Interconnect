@@ -8,6 +8,17 @@
 <h1><img src="../images/chart_bar.png" width="32px" /> Admin Dashboard</h1>
 
 <table cellspacing="5">
+<tr><td><b>Proposals</b></td></tr>
+<tr>
+    <td>
+    <asp:HyperLink ID="PenPropLink" runat="server" 
+            NavigateUrl="Proposals"> Pending Proposals</asp:HyperLink></td>
+</tr>
+</table>
+
+<hr />
+
+<table cellspacing="5">
 <tr><td><b>Events</b></td><td rowspan="3" width="15px"></td></tr>
 <tr>
     <td>
