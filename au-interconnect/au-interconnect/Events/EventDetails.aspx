@@ -4,6 +4,12 @@
 </asp:Content>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+<meta property="og:title" content="" />
+<meta property="og:type" content="activity" />
+<meta property="og:url" content="" />
+<meta property="og:image" content="" />
+<meta property="og:site_name" content="" />
+<meta property="fb:admins" content="546981070" />
 <style type="text/css">
 td{vertical-align:top}
 td.fldLbl{font-weight:bold}
@@ -14,6 +20,16 @@ td.fldLbl{font-weight:bold}
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+        <!-- Facebook API -->
+        <div id="fb-root"></div>
+        <script>    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+        fjs.parentNode.insertBefore(js, fjs);
+        } (document, 'script', 'facebook-jssdk'));</script>
+
 <h1><asp:Literal ID="EventName" runat="server"></asp:Literal></h1>
         
         <asp:Literal ID="BigEventTime" runat="server" Visible="false"></asp:Literal>
@@ -40,6 +56,8 @@ td.fldLbl{font-weight:bold}
         </table>
 
     <br />
+    <!-- The like facebook  -->
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="true"></div>
     <p>
                 <asp:Button ID="regBtn" runat="server" Text="Sign Up" onclick="regBtn_Click" />
     </p>

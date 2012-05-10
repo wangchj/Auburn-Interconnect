@@ -10,6 +10,17 @@
 </asp:Content>
 
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
+    
+    <!-- Facebook API -->
+    <div id="fb-root"></div>
+    <script>    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+        fjs.parentNode.insertBefore(js, fjs);
+    } (document, 'script', 'facebook-jssdk'));</script>
+
     <h1>Welcome!</h1>
     <p>
     Welcome to Auburn InterConnect. This site connects “local know how” of Auburn
@@ -32,6 +43,9 @@
     that would involve 5 or more people. You decide!
     See a list of upcomming events <a href="Events/UpcomingEvents.aspx">here</a>!
     </p>
+
+    <!-- Like button -->
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="true"></div>
 
     <h1>Contacts</h1>
     <table border="1" style="width:100%">
