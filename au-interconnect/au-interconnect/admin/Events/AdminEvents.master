@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" MasterPageFile="~/admin/Admin.master" AutoEventWireup="true" CodeBehind="AdminEvents.master.cs" Inherits="AUInterconnect.admin.Events.AdminEvents" %>
+﻿<%@ Master Language="C#" MasterPageFile="~/admin/Admin.master" AutoEventWireup="true" CodeBehind="AdminEvents.master.cs" Inherits="AUInterconnect.Views.admin.Events.AdminEvents" %>
 <%@ Import Namespace="AUInterconnect" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="server">
 <asp:ContentPlaceHolder ID="title" runat="server"></asp:ContentPlaceHolder>

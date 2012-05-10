@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin/Events/AdminEvents.master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="AUInterconnect.admin.Events.Default" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin/Events/AdminEvents.master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="AUInterconnect.Views.admin.Events.Default" %>
 
 <script runat="server">
 /// <summary>

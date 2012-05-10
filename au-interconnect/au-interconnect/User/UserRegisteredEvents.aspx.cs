@@ -6,8 +6,10 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using AUInterconnect.UserControls;
+using AUInterconnect.Configuration;
+using AUInterconnect.Configuration;
 
-namespace AUInterconnect
+namespace AUInterconnect.Views.User
 {
     public partial class UserRegisteredEvents : System.Web.UI.Page
     {
@@ -16,7 +18,7 @@ namespace AUInterconnect
 
 #if DEBUG
             if (Session[Const.User] == null)
-                Session[Const.User] = new User(1, true);
+                Session[Const.User] = new DataModels.User(1, true);
 #endif
 
             if (Session[Const.User] == null)
@@ -27,7 +29,7 @@ namespace AUInterconnect
                 Response.Redirect(url, true);
             }
 
-            User user = (User)Session[Const.User];
+            DataModels.User user = (DataModels.User)Session[Const.User];
             UserID.Value = user.Uid.ToString();
 
             //Load eventes from database
@@ -78,7 +80,7 @@ namespace AUInterconnect
                 "WHERE userId=@userId AND endTime>@now " +
                 "ORDER BY [Events].startTime";
 
-            User user = (User)Session[Const.User];
+            DataModels.User user = (DataModels.User)Session[Const.User];
 
             SqlConnection con = new SqlConnection(Config.SqlConStr);
             SqlCommand command = new SqlCommand(queryStr, con);

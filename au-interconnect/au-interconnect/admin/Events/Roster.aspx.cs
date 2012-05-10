@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
-using AUInterconnect.DataModel;
+using AUInterconnect.DataModels;
 
-namespace AUInterconnect.admin.Events
+namespace AUInterconnect.Views.admin.Events
 {
     public partial class Roster : System.Web.UI.Page
     {

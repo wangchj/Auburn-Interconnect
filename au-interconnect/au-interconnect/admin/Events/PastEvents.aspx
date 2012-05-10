@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin/Events/AdminEvents.master" AutoEventWireup="true" CodeBehind="PastEvents.aspx.cs" Inherits="AUInterconnect.admin.Events.PastEvents" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin/Events/AdminEvents.master" AutoEventWireup="true" CodeBehind="PastEvents.aspx.cs" Inherits="AUInterconnect.Views.admin.Events.PastEvents" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="HeadCount" runat="server">

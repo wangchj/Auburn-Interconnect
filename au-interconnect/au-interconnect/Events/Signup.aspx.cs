@@ -6,10 +6,11 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
-using AUInterconnect.DataModel;
+using AUInterconnect.DataModels;
 //using log4net;
+using AUInterconnect.Configuration;
 
-namespace AUInterconnect.Events
+namespace AUInterconnect.Views.Events
 {
     public partial class Signup : System.Web.UI.Page
     {
@@ -27,21 +28,21 @@ namespace AUInterconnect.Events
 #if DEBUG
             //If in debug mode and user is null, instantiate a debug user
             //object, so we don't have to login every time we debug.
-            User debUser = (User)Session[Const.User];
+                DataModels.User debUser = (DataModels.User)Session[Const.User];
             if (debUser == null)
             {
-                debUser = new User(DevConf.DebugUserId, true);
+                debUser = new DataModels.User(DevConf.DebugUserId, true);
                 Session[Const.User] = debUser;
             }
             debUser.IsAuStudent = true;
 #endif
-                User user = (User)Session[Const.User];
+            DataModels.User user = (DataModels.User)Session[Const.User];
                 if (user == null || !user.IsAuStudent)
                 {
                     string returnUrl = HttpUtility.UrlEncode(
                         Request.Url.ToString());
                     string queryStr = "?" +
-                        AUInterconnect.Login.AuthAuStud + "=1" +
+                        Const.AuthAuStud + "=1" +
                         "&ReturnUrl=" + returnUrl;
                     string url = "~/User/Login.aspx" + queryStr;
                     Response.Redirect(url, true);
@@ -144,7 +145,7 @@ namespace AUInterconnect.Events
             int.TryParse(HeadCount.Text.Trim(), out headCount);
             int.TryParse(VehicleCap.Text.Trim(), out vehicleCap);
 
-            int userId = ((User)Session[Const.User]).Uid;
+            int userId = ((DataModels.User)Session[Const.User]).Uid;
 
             try
             {
@@ -207,7 +208,7 @@ namespace AUInterconnect.Events
         {
             try
             {
-                int userId = ((User)Session[Const.User]).Uid;
+                int userId = ((DataModels.User)Session[Const.User]).Uid;
 
                 //Get Event ID
                 int eventId = 0;

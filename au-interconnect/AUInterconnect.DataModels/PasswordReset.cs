@@ -5,8 +5,9 @@ using System.Web;
 using System.Data.SqlClient;
 using System.Text;
 using System.Net.Mail;
+using AUInterconnect.Configuration;
 
-namespace AUInterconnect.DataModel
+namespace AUInterconnect.DataModels
 {
     public class PasswordReset
     {

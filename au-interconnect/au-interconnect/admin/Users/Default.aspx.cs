@@ -4,8 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using AUInterconnect.DataModels;
 
-namespace AUInterconnect.admin.Users
+namespace AUInterconnect.Views.admin.Users
 {
     public partial class Default : System.Web.UI.Page
     {
@@ -20,7 +21,7 @@ namespace AUInterconnect.admin.Users
             {
                 CheckBox checkbox = (CheckBox)sender;
                 int userId = int.Parse(checkbox.ToolTip);
-                AUInterconnect.User.UpdateAdmin(userId, checkbox.Checked);
+                DataModels.User.UpdateAdmin(userId, checkbox.Checked);
                 GridView1.DataBind();
             }
             catch (Exception)

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using AUInterconnect.DataModel;
+using AUInterconnect.DataModels;
 
-namespace AUInterconnect.admin.Proposals
+namespace AUInterconnect.Views.admin.Proposals
 {
     public partial class View : System.Web.UI.Page
     {

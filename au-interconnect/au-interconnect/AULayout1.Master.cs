@@ -4,8 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using AUInterconnect.Configuration;
 
-namespace AUInterconnect
+namespace AUInterconnect.Views
 {
     public partial class AULayout1Master : System.Web.UI.MasterPage
     {
@@ -21,7 +22,7 @@ namespace AUInterconnect
             }
             else
             {
-                User user = (User)Session[Const.User];
+                DataModels.User user = (DataModels.User)Session[Const.User];
                 useridentity.Visible = true;
                 UserNameLabel.Visible = true;
                 UserNameLabel.Text = HttpUtility.HtmlEncode(user.FirstName);

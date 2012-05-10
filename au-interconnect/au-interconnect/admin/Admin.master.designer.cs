@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AUInterconnect.admin {
+namespace AUInterconnect.Views.admin {
     
     
     public partial class Admin {

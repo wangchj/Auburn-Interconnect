@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.SqlClient;
+using AUInterconnect.Configuration;
 
-namespace AUInterconnect
+namespace AUInterconnect.DataModels
 {
     public class Event
     {

@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
-using AUInterconnect.DataModel;
+using AUInterconnect.DataModels;
 
-namespace AUInterconnect.Host
+namespace AUInterconnect.Views.Host
 {
     public partial class EventRoster : System.Web.UI.Page
     {
@@ -22,12 +22,12 @@ namespace AUInterconnect.Host
         private void FillRosterTable()
         {
             int eventId = RequestUtil.GetEventId(Request);
-            int eventHc = DataModel.EventRoster.GetEventTotalParticipant(eventId);
-            int eventCc = DataModel.EventRoster.GetEventTotalCarpoolCapacity(eventId);
+            int eventHc = DataModels.EventRoster.GetEventTotalParticipant(eventId);
+            int eventCc = DataModels.EventRoster.GetEventTotalCarpoolCapacity(eventId);
 
             try
             {
-                using (SqlDataReader reader = DataModel.EventRoster.GetReaderEventRoster(eventId))
+                using (SqlDataReader reader = DataModels.EventRoster.GetReaderEventRoster(eventId))
                 {
                     while (reader.Read())
                     {

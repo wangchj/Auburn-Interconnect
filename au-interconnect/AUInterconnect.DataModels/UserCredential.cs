@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace AUInterconnect.DataModel
+namespace AUInterconnect.DataModels
 {
     public class UserCredential
     {

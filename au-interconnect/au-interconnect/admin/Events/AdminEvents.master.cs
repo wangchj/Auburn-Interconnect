@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace AUInterconnect.admin.Events
+namespace AUInterconnect.Views.admin.Events
 {
     public partial class AdminEvents : System.Web.UI.MasterPage
     {

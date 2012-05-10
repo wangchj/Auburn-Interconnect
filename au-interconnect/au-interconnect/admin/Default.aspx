@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin/Admin.master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="AUInterconnect.admin.Default" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin/Admin.master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="AUInterconnect.Views.admin.Default" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="server">Admin Dashboard</asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="HeadCount" runat="server">

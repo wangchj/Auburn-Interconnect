@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AUInterconnect.admin.Proposals {
+namespace AUInterconnect.Views.admin.Proposals {
     
     
     public partial class View {

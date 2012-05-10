@@ -5,10 +5,11 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using AUInterconnect.UserControls;
-using AUInterconnect.DataModel;
+using AUInterconnect.DataModels;
 using System.Data.SqlClient;
+using AUInterconnect.Configuration;
 
-namespace AUInterconnect.Host
+namespace AUInterconnect.Views.Host
 {
     public partial class HostActiveEvents : System.Web.UI.Page
     {
@@ -22,9 +23,9 @@ namespace AUInterconnect.Host
 
         private void FillEvents()
         {
-            User user = (User)Session[Const.User];
+            DataModels.User user = (DataModels.User)Session[Const.User];
             SqlDataReader reader =
-                DataModel.Host.GetDataReaderActiveEvents(user.Uid);
+                DataModels.Host.GetDataReaderActiveEvents(user.Uid);
             try
             {
                 using (reader)

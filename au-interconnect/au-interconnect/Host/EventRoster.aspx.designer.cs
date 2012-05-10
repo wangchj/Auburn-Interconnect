@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AUInterconnect.Host {
+namespace AUInterconnect.Views.Host {
     
     
     public partial class EventRoster {

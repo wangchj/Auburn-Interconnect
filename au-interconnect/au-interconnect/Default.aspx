@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/AULayout1.master" AutoEventWireup="true"
-    CodeBehind="Default.aspx.cs" Inherits="AUInterconnect._Default" %>
+    CodeBehind="Default.aspx.cs" Inherits="AUInterconnect.Views._Default" %>
 
 <asp:Content ID="Title" runat="server" ContentPlaceHolderID="title">Auburn InterConnect</asp:Content>
 

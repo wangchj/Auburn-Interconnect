@@ -6,8 +6,9 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Text;
+using AUInterconnect.Configuration;
 
-namespace AUInterconnect.Events
+namespace AUInterconnect.Views.Events
 {
     public partial class Create : System.Web.UI.Page
     {
@@ -167,7 +168,7 @@ namespace AUInterconnect.Events
             {
                 SqlCommand command = new SqlCommand(queryStr, con);
                 command.Parameters.Add(new SqlParameter("creatorId",
-                    ((User)Session[Const.User]).Uid));
+                    ((DataModels.User)Session[Const.User]).Uid));
                 command.Parameters.Add(new SqlParameter("createTime",
                     DateTime.Now));
                 command.Parameters.Add(

@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="Log In" Language="C#" MasterPageFile="~/AULayout1.master" AutoEventWireup="true"
-    CodeBehind="Login.aspx.cs" Inherits="AUInterconnect.Login" %>
+    CodeBehind="Login.aspx.cs" Inherits="AUInterconnect.Views.User.Login" %>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="title" runat="server">
 Auburn Interconnect - Log In

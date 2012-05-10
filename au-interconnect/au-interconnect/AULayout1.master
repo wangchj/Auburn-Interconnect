@@ -1,8 +1,8 @@
 ﻿<!DOCTYPE html>
-<%@ Master Language="C#"  AutoEventWireup="true" CodeBehind="AULayout1.Master.cs" Inherits="AUInterconnect.AULayout1Master" %>
+<%@ Master Language="C#"  AutoEventWireup="true" CodeBehind="AULayout1.Master.cs" Inherits="AUInterconnect.Views.AULayout1Master" %>
 <%@ Register TagPrefix="uc" TagName="UserIdentity" Src="~/UserControls/UserIdentity.ascx" %>
-<%@ Import Namespace="AUInterconnect" %>
-
+<%@ Import Namespace="AUInterconnect.DataModels" %>
+<%@ Import Namespace="AUInterconnect.Configuration" %>
 <script runat="server">
     private string GetLogoPath()
     {

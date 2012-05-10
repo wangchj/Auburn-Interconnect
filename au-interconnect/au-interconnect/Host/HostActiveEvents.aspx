@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AULayout1.master" AutoEventWireup="true" CodeBehind="HostActiveEvents.aspx.cs" Inherits="AUInterconnect.Host.HostActiveEvents" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AULayout1.master" AutoEventWireup="true" CodeBehind="HostActiveEvents.aspx.cs" Inherits="AUInterconnect.Views.Host.HostActiveEvents" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="server">
 Auburn Interconnect - Host - Active Events
 </asp:Content>

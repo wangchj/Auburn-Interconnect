@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AULayout1.master" AutoEventWireup="true" CodeBehind="PwdResetRequestComplete.aspx.cs" Inherits="AUInterconnect.PwdResetRequestComplete" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AULayout1.master" AutoEventWireup="true" CodeBehind="PwdResetRequestComplete.aspx.cs" Inherits="AUInterconnect.Views.User.PwdResetRequestComplete" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="HeadContent" runat="server">

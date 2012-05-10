@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AUInterconnect.Events {
+namespace AUInterconnect.Views.Events {
     
     
     public partial class Signup {

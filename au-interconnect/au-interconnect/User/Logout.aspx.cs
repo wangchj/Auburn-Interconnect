@@ -4,8 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using AUInterconnect.Configuration;
 
-namespace AUInterconnect
+namespace AUInterconnect.Views.User
 {
     public partial class Logout : System.Web.UI.Page
     {

@@ -8,7 +8,7 @@ using FormsAuthAD;
 using System.Data.SqlClient;
 using System.Text;
 
-namespace AUInterconnect
+namespace AUInterconnect.Views
 {
     public partial class _Default : System.Web.UI.Page
     {

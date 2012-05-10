@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Threading;
+using AUInterconnect.Configuration;
 
 namespace AUInterconnect
 {
@@ -46,7 +47,7 @@ namespace AUInterconnect
                     page.Request.Url.ToString());
                 string queryStr = "?ReturnUrl=" + returnUrl;
                 if (checkStudent)
-                    queryStr += "&" + AUInterconnect.Login.AuthAuStud + "=1";
+                    queryStr += "&" + Const.AuthAuStud + "=1";
                 string url = "~/User/Login.aspx" + queryStr;
                 page.Response.Redirect(url, true);
             }

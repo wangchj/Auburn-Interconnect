@@ -4,8 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using AUInterconnect.DataModels;
 
-namespace AUInterconnect.admin.Events
+namespace AUInterconnect.Views.admin.Events
 {
     public partial class UnapprovedEvents : System.Web.UI.Page
     {

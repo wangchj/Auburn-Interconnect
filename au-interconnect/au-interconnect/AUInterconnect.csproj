@@ -10,8 +10,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AUInterconnect</RootNamespace>
-    <AssemblyName>AUInterconnect</AssemblyName>
+    <RootNamespace>AUInterconnect.Views</RootNamespace>
+    <AssemblyName>AUInterconnect.Views</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <UseIISExpress>false</UseIISExpress>
   </PropertyGroup>
@@ -74,8 +74,6 @@
     <Content Include="admin\Proposals\style.css" />
     <Content Include="admin\Proposals\View.aspx" />
     <Content Include="admin\Users\Default.aspx" />
-    <Content Include="Connect\EventRoster.aspx" />
-    <Content Include="Connect\MyEvents.aspx" />
     <Content Include="EventEntryCntrl.ascx" />
     <Content Include="Events\CreateComplete.aspx" />
     <Content Include="Events\EventHostAgreement.htm" />
@@ -279,29 +277,6 @@
     <Compile Include="AULayout1.Master.designer.cs">
       <DependentUpon>AULayout1.master</DependentUpon>
     </Compile>
-    <Compile Include="Connect\EventRoster.aspx.cs">
-      <DependentUpon>EventRoster.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Connect\EventRoster.aspx.designer.cs">
-      <DependentUpon>EventRoster.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Connect\MyEvents.aspx.cs">
-      <DependentUpon>MyEvents.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Connect\MyEvents.aspx.designer.cs">
-      <DependentUpon>MyEvents.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Const.cs" />
-    <Compile Include="DataModel\EventRegistration.cs" />
-    <Compile Include="DataModel\EventRoster.cs" />
-    <Compile Include="DataModel\Host.cs" />
-    <Compile Include="DataModel\PasswordReset.cs" />
-    <Compile Include="DataModel\Proposal.cs" />
-    <Compile Include="DataModel\UserCredential.cs" />
-    <Compile Include="DevConf.cs" />
-    <Compile Include="Event.cs" />
     <Compile Include="EventEntryCntrl.ascx.cs">
       <DependentUpon>EventEntryCntrl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -377,7 +352,6 @@
     </Compile>
     <Compile Include="RequestUtil.cs" />
     <Compile Include="SimpleEventArgs.cs" />
-    <Compile Include="User.cs" />
     <Compile Include="UserControls\EventNameDate.ascx.cs">
       <DependentUpon>EventNameDate.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -462,7 +436,6 @@
     <Compile Include="User\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Config.cs" />
     <Compile Include="Events\Create.aspx.cs">
       <DependentUpon>Create.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -540,6 +513,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="admin\Events\AdminEvents.master" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AUInterconnect.Config\AUInterconnect.Configuration.csproj">
+      <Project>{6ABB399D-907D-4530-9AF2-3D8F85708B77}</Project>
+      <Name>AUInterconnect.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AUInterconnect.DataModels\AUInterconnect.DataModels.csproj">
+      <Project>{63D4D7FE-8494-4A32-8284-99CC9BA64EC5}</Project>
+      <Name>AUInterconnect.DataModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

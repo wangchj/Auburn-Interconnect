@@ -4,8 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using AUInterconnect.Configuration;
 
-namespace AUInterconnect
+namespace AUInterconnect.Views
 {
     public partial class SiteMaster : System.Web.UI.MasterPage
     {
@@ -20,7 +21,7 @@ namespace AUInterconnect
             }
             else
             {
-                User user = (User)Session[Const.User];
+                DataModels.User user = (DataModels.User)Session[Const.User];
                 logoutLnk.Visible = true;
                 loginLnk.Visible = false;
                 userLit.Text = user.FirstName + ' ' + user.LastName; 

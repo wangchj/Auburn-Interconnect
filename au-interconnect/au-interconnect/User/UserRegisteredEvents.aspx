@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AULayout1.master" AutoEventWireup="true" CodeBehind="UserRegisteredEvents.aspx.cs" Inherits="AUInterconnect.UserRegisteredEvents" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AULayout1.master" AutoEventWireup="true" CodeBehind="UserRegisteredEvents.aspx.cs" Inherits="AUInterconnect.Views.User.UserRegisteredEvents" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="server">
 </asp:Content>
 

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AUInterconnect {
+namespace AUInterconnect.Views.User {
     
     
     public partial class PwdResetRequest {

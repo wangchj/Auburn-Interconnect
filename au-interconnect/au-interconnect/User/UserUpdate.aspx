@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="Sign Up" Language="C#" MasterPageFile="~/AULayout1.master" AutoEventWireup="true"
-    CodeBehind="UserUpdate.aspx.cs" Inherits="AUInterconnect.UserUpdate" %>
+    CodeBehind="UserUpdate.aspx.cs" Inherits="AUInterconnect.Views.User.UserUpdate" %>
 
 <asp:Content ID="Title" runat="server" ContentPlaceHolderID="title">
 Auburn Interconnect - User Registration

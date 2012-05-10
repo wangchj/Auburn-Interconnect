@@ -6,8 +6,9 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Text;
 using System.Security.Cryptography;
+using AUInterconnect.Configuration;
 
-namespace AUInterconnect
+namespace AUInterconnect.DataModels
 {
     public class User
     {

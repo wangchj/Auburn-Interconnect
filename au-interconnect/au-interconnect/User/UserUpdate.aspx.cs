@@ -5,9 +5,10 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
-using AUInterconnect.Events;
+using AUInterconnect.Views.Events;
+using AUInterconnect.DataModels;
 
-namespace AUInterconnect
+namespace AUInterconnect.Views.User
 {
     public partial class UserUpdate : System.Web.UI.Page
     {
@@ -15,7 +16,7 @@ namespace AUInterconnect
         {
             if (!IsPostBack)
             {
-                User user = PageHelper.Login(this, false);
+                DataModels.User user = PageHelper.Login(this, false);
                 fnTxb.Text = user.FirstName;
                 lnTxb.Text = user.LastName;
                 phoneTxb.Text = user.Phone;
@@ -28,7 +29,7 @@ namespace AUInterconnect
             if (!Page.IsValid)
                 return;
 
-            User user = PageHelper.GetCurrentUser(this);
+            DataModels.User user = PageHelper.GetCurrentUser(this);
             if (user.Update(fnTxb.Text, lnTxb.Text, emailTxb.Text,
                 FormatHelper.ParsePhoneNum(phoneTxb.Text)) == 0)
             {

@@ -5,8 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
+using AUInterconnect.Configuration;
 
-namespace AUInterconnect
+namespace AUInterconnect.Views.User
 {
     public partial class Reg : System.Web.UI.Page
     {
@@ -38,7 +39,7 @@ namespace AUInterconnect
                 }
                 else
                 {
-                    AUInterconnect.User.AddNewUser(fnTxb.Text, lnTxb.Text,
+                    DataModels.User.AddNewUser(fnTxb.Text, lnTxb.Text,
                         emailTxb.Text, 
                         FormatHelper.ParsePhoneNum(phoneTxb.Text), pwdTxb.Text);
                     Response.Redirect("../Default.aspx", true);

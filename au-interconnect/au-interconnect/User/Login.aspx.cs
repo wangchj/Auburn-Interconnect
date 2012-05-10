@@ -8,8 +8,10 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using FormsAuthAD;
+using AUInterconnect.DataModels;
+using AUInterconnect.Configuration;
 
-namespace AUInterconnect
+namespace AUInterconnect.Views.User
 {
     public partial class Login : System.Web.UI.Page
     {
@@ -20,7 +22,7 @@ namespace AUInterconnect
             try
             {
                 //If user already logged in, return to previous page
-                User user = (User)Session[Const.User];
+                DataModels.User user = (DataModels.User)Session[Const.User];
                 if (user != null && !AuthenticateAuStudent ||
                     user != null && AuthenticateAuStudent && user.IsAuStudent)
                 {
@@ -75,7 +77,7 @@ namespace AUInterconnect
                         //Sys auth succeeded. Create user and hide sys login
                         //box.
                         Panel1.Visible = false;
-                        User user = new User(uid);
+                        DataModels.User user = new DataModels.User(uid);
                         Session[Const.User] = user;
                         if (isStudent)
                         {
@@ -103,7 +105,7 @@ namespace AUInterconnect
                     if (uid != -1)
                     {
                         //Sys auth succeeded.
-                        User user = new User(uid);
+                        DataModels.User user = new DataModels.User(uid);
                         Session[Const.User] = user;
                         Nav.ReturnToPrevPage(this);
                     }
@@ -117,7 +119,7 @@ namespace AUInterconnect
                 {
                     //Only need authenticatation for AU user.
 
-                    User user = (User)Session[Const.User];
+                    DataModels.User user = (DataModels.User)Session[Const.User];
                     if (isStudent)
                     {
                         user.IsAuStudent = true;
@@ -156,8 +158,8 @@ namespace AUInterconnect
             {
                 SqlCommand command = new SqlCommand(queryStr, con);
                 command.Parameters.Add(new SqlParameter("email", email));
-                command.Parameters.Add(new SqlParameter("pwd", 
-                    AUInterconnect.User.HashPassword(pwd)));
+                command.Parameters.Add(new SqlParameter("pwd",
+                    DataModels.User.HashPassword(pwd)));
                 con.Open();
                 Object obj = command.ExecuteScalar();
                 if (obj == null)
@@ -200,13 +202,11 @@ namespace AUInterconnect
             }
         }
 
-        public const string AuthAuStud = "authAuStud";
-
         private bool AuthenticateAuStudent
         {
             get
             {
-                string flag = Request[AuthAuStud];
+                string flag = Request[Const.AuthAuStud];
                 if (flag == null)
                     return false;
                 return flag == "1";

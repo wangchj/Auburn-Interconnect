@@ -6,10 +6,12 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
-using AUInterconnect.DataModel;
+using System.Configuration;
+using AUInterconnect.DataModels;
 //using log4net;
+using AUInterconnect.Configuration;
 
-namespace AUInterconnect.Events
+namespace AUInterconnect.Views.Events
 {
     public partial class EventDetails : System.Web.UI.Page
     {
@@ -21,11 +23,11 @@ namespace AUInterconnect.Events
             //If in debug mode and the current user is null, randomly generate
             //a user so we don't have to manually login every time.
             if (Session[Const.User] == null)
-                Session[Const.User] = new User(DevConf.DebugUserId);
+                Session[Const.User] = new DataModels.User(DevConf.DebugUserId);
 #endif
 
             //Get the user.
-            User user = (User)Session[Const.User];
+            DataModels.User user = (DataModels.User)Session[Const.User];
             //Get the event ID from GET.
             string eidStr = Request[Const.EventId];
 

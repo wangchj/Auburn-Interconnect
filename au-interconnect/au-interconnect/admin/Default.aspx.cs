@@ -4,9 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using AUInterconnect.DataModel;
+using AUInterconnect.DataModels;
 
-namespace AUInterconnect.admin
+namespace AUInterconnect.Views.admin
 {
     public partial class Default : System.Web.UI.Page
     {
@@ -29,7 +29,7 @@ namespace AUInterconnect.admin
             TotalEventsCount.Text = Event.GetTotalEventCount().ToString() + TotalEventsCount.Text;
 
             //User stats
-            TotalUserCount.Text = AUInterconnect.User.GetAllUserCount().ToString() + TotalUserCount.Text;
+            TotalUserCount.Text = DataModels.User.GetAllUserCount().ToString() + TotalUserCount.Text;
         }
     }
 }

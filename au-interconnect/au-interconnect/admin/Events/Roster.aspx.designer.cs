@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AUInterconnect.admin.Events {
+namespace AUInterconnect.Views.admin.Events {
     
     
     public partial class Roster {

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AULayout1.master" AutoEventWireup="true" CodeBehind="UpcomingEvents.aspx.cs" Inherits="AUInterconnect.Events.UpcomingEvents" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AULayout1.master" AutoEventWireup="true" CodeBehind="UpcomingEvents.aspx.cs" Inherits="AUInterconnect.Views.Events.UpcomingEvents" %>
 <%@ Register TagPrefix="uc" TagName="DateIcon" Src="~/UserControls/DateIcon.ascx" %>
 <%@ Register TagPrefix="uc" TagName="ShortEventInfo" Src="~/UserControls/ShortEventInfo.ascx" %>
 

@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AUInterconnect", "au-interconnect\AUInterconnect.csproj", "{98258EA8-3EAF-4FCE-B2F4-FC37B6DAA550}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AUInterconnect.DataModels", "AUInterconnect.DataModels\AUInterconnect.DataModels.csproj", "{63D4D7FE-8494-4A32-8284-99CC9BA64EC5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AUInterconnect.Configuration", "AUInterconnect.Config\AUInterconnect.Configuration.csproj", "{6ABB399D-907D-4530-9AF2-3D8F85708B77}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +17,14 @@ Global
 		{98258EA8-3EAF-4FCE-B2F4-FC37B6DAA550}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98258EA8-3EAF-4FCE-B2F4-FC37B6DAA550}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{98258EA8-3EAF-4FCE-B2F4-FC37B6DAA550}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63D4D7FE-8494-4A32-8284-99CC9BA64EC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63D4D7FE-8494-4A32-8284-99CC9BA64EC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63D4D7FE-8494-4A32-8284-99CC9BA64EC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63D4D7FE-8494-4A32-8284-99CC9BA64EC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6ABB399D-907D-4530-9AF2-3D8F85708B77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6ABB399D-907D-4530-9AF2-3D8F85708B77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6ABB399D-907D-4530-9AF2-3D8F85708B77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6ABB399D-907D-4530-9AF2-3D8F85708B77}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

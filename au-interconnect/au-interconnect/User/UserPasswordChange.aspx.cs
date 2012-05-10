@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace AUInterconnect
+namespace AUInterconnect.Views.User
 {
     public partial class UserPasswordChange : System.Web.UI.Page
     {
@@ -19,7 +19,7 @@ namespace AUInterconnect
             if (!Page.IsValid)
                 return;
 
-            User user = PageHelper.GetCurrentUser(this);
+            DataModels.User user = PageHelper.GetCurrentUser(this);
             int r = user.ChangePassword(OldPwd.Text, NewPwd.Text);
 
             if (r == 0)

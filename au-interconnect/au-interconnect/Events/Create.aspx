@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AULayout1.master" AutoEventWireup="true"
-    CodeBehind="Create.aspx.cs" Inherits="AUInterconnect.Events.Create" %>
+    CodeBehind="Create.aspx.cs" Inherits="AUInterconnect.Views.Events.Create" %>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="title" runat="server">
 Auburn Interconnect - Propose an Event

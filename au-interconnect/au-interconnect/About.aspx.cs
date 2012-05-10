@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace AUInterconnect
+namespace AUInterconnect.Views
 {
     public partial class About : System.Web.UI.Page
     {

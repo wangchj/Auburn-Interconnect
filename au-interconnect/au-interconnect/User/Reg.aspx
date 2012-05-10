@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="Sign Up" Language="C#" MasterPageFile="~/AULayout1.master" AutoEventWireup="true"
-    CodeBehind="Reg.aspx.cs" Inherits="AUInterconnect.Reg" %>
+    CodeBehind="Reg.aspx.cs" Inherits="AUInterconnect.Views.User.Reg" %>
 <%@ Register TagPrefix="cc1" Namespace="WebControlCaptcha" Assembly="WebControlCaptcha" %>
 
 <asp:Content ID="Title" runat="server" ContentPlaceHolderID="title">

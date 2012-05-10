@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin/Admin.master" AutoEventWireup="true" 
-CodeBehind="View.aspx.cs" Inherits="AUInterconnect.admin.Proposals.View" ValidateRequest="false"%>
+CodeBehind="View.aspx.cs" Inherits="AUInterconnect.Views.admin.Proposals.View" ValidateRequest="false"%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="server">
 </asp:Content>

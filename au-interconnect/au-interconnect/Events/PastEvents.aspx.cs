@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace AUInterconnect.Events
+namespace AUInterconnect.Views.Events
 {
     public partial class PastEvents : System.Web.UI.Page
     {

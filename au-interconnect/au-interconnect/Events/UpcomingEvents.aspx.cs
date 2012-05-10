@@ -6,8 +6,9 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using AUInterconnect.UserControls;
+using AUInterconnect.Configuration;
 
-namespace AUInterconnect.Events
+namespace AUInterconnect.Views.Events
 {
     public partial class UpcomingEvents : System.Web.UI.Page
     {

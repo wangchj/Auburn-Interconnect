@@ -5,8 +5,9 @@ using System.Web;
 using System.Data;
 using System.Data.SqlClient;
 using AUInterconnect;
+using AUInterconnect.Configuration;
 
-namespace AUInterconnect.DataModel
+namespace AUInterconnect.DataModels
 {
     public class EventRegistration
     {

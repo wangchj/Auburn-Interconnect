@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AULayout1.Master" AutoEventWireup="true" CodeBehind="Signup.aspx.cs" Inherits="AUInterconnect.Events.Signup" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AULayout1.Master" AutoEventWireup="true" CodeBehind="Signup.aspx.cs" Inherits="AUInterconnect.Views.Events.Signup" %>
 
 <asp:Content ID="TitleContent" ContentPlaceHolderID="title" runat="server">
 </asp:Content>

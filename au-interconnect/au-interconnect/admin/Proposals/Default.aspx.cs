@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace AUInterconnect.admin.Proposals
+namespace AUInterconnect.Views.admin.Proposals
 {
     public partial class Default : System.Web.UI.Page
     {

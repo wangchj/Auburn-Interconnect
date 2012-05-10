@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace AUInterconnect
+namespace AUInterconnect.Views.User
 {
     public partial class PwdResetConfirm : System.Web.UI.Page
     {

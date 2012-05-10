@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Configuration;
 
-namespace AUInterconnect
+namespace AUInterconnect.Configuration
 {
     public class Config
     {

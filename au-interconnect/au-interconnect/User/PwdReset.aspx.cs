@@ -4,9 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using AUInterconnect.DataModel;
+using AUInterconnect.DataModels;
 
-namespace AUInterconnect
+namespace AUInterconnect.Views.User
 {
     public partial class PwdReset : System.Web.UI.Page
     {

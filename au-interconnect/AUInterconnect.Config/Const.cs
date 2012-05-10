@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace AUInterconnect
+namespace AUInterconnect.Configuration
 {
     public class Const
     {
@@ -12,5 +12,6 @@ namespace AUInterconnect
         public const string EventId = "EventId";
         public const string IsAuStudent ="IsAuStudent";
         public const string ProposalId = "ProposalId";
+        public const string AuthAuStud = "authAuStud";
     }
 }
