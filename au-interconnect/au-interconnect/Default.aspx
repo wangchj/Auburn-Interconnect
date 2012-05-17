@@ -49,11 +49,10 @@
     </td>
     <td><!-- column 2 -->
     <table cellspacing="5px">
-        <tr><td><img src="images/no_pic.jpg" /></td>
+        <tr><td><img src="images/Joanne.JPG" height="175px" /></td>
         <td style="vertical-align:top; line-height: 15px;">
-            <b><a href="mailto:vininlj@auburn.edu">Joanne Li</a></b><br />
-            Events Coordinator<br />
-            333-3333
+            <b><a href="mailto:junshaw@yahoo.com">Joanne Li</a></b><br />
+            Events Coordinator
         </td></tr>
         </table>
     </td>
