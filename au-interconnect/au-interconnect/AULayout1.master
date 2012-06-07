@@ -50,6 +50,7 @@
 <link rel="stylesheet" href="<%=AppPath + "styles/AuTemplate/sidebar.css"%>" media="screen" type="text/css" />
 <link rel="stylesheet" type="text/css" media="only screen and (max-device-width: 480px)" href="<%=AppPath + "styles/AuTemplate/mobile.css"%>" />
 <link rel="stylesheet" href="<%=AppPath + "styles/AuTemplate/print.css"%>" media="print" type="text/css" />
+<link rel="stylesheet" href="<%=AppPath + "Styles/Site.css" %>" type="text/css" />
 
 <link rel="shortcut icon" href="https://fp.auburn.edu/template/images/favicon.ico" />
 <!-- script type="text/javascript" src="https://fp.auburn.edu/template/js/jquery-1.4.2.min.js"></script -->

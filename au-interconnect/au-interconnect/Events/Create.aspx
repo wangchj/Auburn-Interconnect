@@ -8,7 +8,7 @@ Auburn Interconnect - Propose an Event
 <asp:Content ID="BreadcrumbContent" runat="server" ContentPlaceHolderID="breadcrumb"></asp:Content>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
-<link rel="Stylesheet" type="text/css" href="../Styles/smoothness/jquery-ui-1.8.15.custom.css" />
+    <link rel="Stylesheet" type="text/css" href="../Styles/smoothness/jquery-ui-1.8.15.custom.css" />
 <style type="text/css">
 /* css for timepicker */
 .ui-timepicker-div .ui-widget-header{ margin-bottom: 8px; }
@@ -161,7 +161,7 @@ td
                     <td>
                         <asp:RequiredFieldValidator ID="hostNameReq" runat="server" 
                         ErrorMessage="Host name is required" ControlToValidate="HostName" 
-                            Display="Dynamic"></asp:RequiredFieldValidator>
+                            Display="Dynamic" CssClass="errorMsg"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
@@ -174,10 +174,10 @@ td
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" 
                             ControlToValidate="HostEmail" ErrorMessage="Host email is invalid" 
                             ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" 
-                            Display="Dynamic"></asp:RegularExpressionValidator>
+                            Display="Dynamic" CssClass="errorMsg"></asp:RegularExpressionValidator>
                         <asp:RequiredFieldValidator ID="HostEmailReq" runat="server" 
                             ControlToValidate="HostEmail" Display="Dynamic" 
-                            ErrorMessage="Host email is required"></asp:RequiredFieldValidator>
+                            ErrorMessage="Host email is required" CssClass="errorMsg"></asp:RequiredFieldValidator>
                     </td>
                  </tr>
                  <tr>
@@ -189,7 +189,7 @@ td
                     <td>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" 
                         ErrorMessage="Host phone is required" ControlToValidate="HostPhone" 
-                            Display="Dynamic"></asp:RequiredFieldValidator>
+                            Display="Dynamic" CssClass="errorMsg"></asp:RequiredFieldValidator>
                     </td>
                  </tr></table>
         <br />
@@ -206,7 +206,7 @@ td
                     <td>
                         <asp:RequiredFieldValidator ID="EventNameReq" runat="server" 
                         ErrorMessage="Give this event a name" ControlToValidate="EventName" 
-                            Display="Dynamic"></asp:RequiredFieldValidator>
+                            Display="Dynamic" CssClass="errorMsg"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
@@ -239,7 +239,7 @@ td
                     <td>
                         <asp:RequiredFieldValidator ID="LocationReq" runat="server" 
                         ErrorMessage="Give this event a name" ControlToValidate="Location" 
-                            Display="Dynamic"></asp:RequiredFieldValidator>
+                            Display="Dynamic" CssClass="errorMsg"></asp:RequiredFieldValidator>
                     </td>
                  </tr>
                  <tr>
@@ -252,7 +252,7 @@ td
                     <td>
                         <asp:RequiredFieldValidator ID="MeetTimeReq" runat="server" 
                         ErrorMessage="Meeting time is required" ControlToValidate="MeetTime" 
-                            Display="Dynamic"></asp:RequiredFieldValidator>
+                            Display="Dynamic" CssClass="errorMsg"></asp:RequiredFieldValidator>
                     </td>
                  </tr>
                  <tr>
@@ -265,7 +265,7 @@ td
                     <td>
                         <asp:RequiredFieldValidator ID="MeetLocReq" runat="server" 
                         ErrorMessage="Meet Location is required" ControlToValidate="MeetLocation" 
-                            Display="Dynamic"></asp:RequiredFieldValidator>
+                            Display="Dynamic" CssClass="errorMsg"></asp:RequiredFieldValidator>
                     </td>
                  </tr>
                  <tr>
@@ -279,7 +279,7 @@ td
             <td>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
                     ErrorMessage="Give this event more info" ControlToValidate="Desc" 
-                    Display="Dynamic"></asp:RequiredFieldValidator>
+                    Display="Dynamic" CssClass="errorMsg"></asp:RequiredFieldValidator>
             </td>
         </tr>
                  </table>       
@@ -302,7 +302,7 @@ td
                     <td>
                         <asp:RequiredFieldValidator ID="TransportReq" runat="server" 
                         ErrorMessage="Transportation info is required" ControlToValidate="Transport" 
-                            Display="Dynamic"></asp:RequiredFieldValidator>
+                            Display="Dynamic" CssClass="errorMsg"></asp:RequiredFieldValidator>
                     </td>
                  </tr>
                  <tr>
@@ -370,7 +370,7 @@ td
                     Width="59px"></asp:TextBox>                
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" 
                     ControlToValidate="GuestLimit" ErrorMessage="This should be a positive number" 
-                    ValidationExpression="\d+" Display="Dynamic"></asp:RegularExpressionValidator>
+                    ValidationExpression="\d+" Display="Dynamic" CssClass="errorMsg"></asp:RegularExpressionValidator>
             </td>
             <td>
             </td>
@@ -393,7 +393,8 @@ td
         <tr>
             <td></td>
             <td colspan="2">
-                <asp:Label ID="msgLbl" runat="server" EnableViewState="False"></asp:Label>
+                <asp:Label ID="msgLbl" runat="server" EnableViewState="False" 
+                    CssClass="errorMsg"></asp:Label>
             </td>
         </tr>
         <tr>
