@@ -232,7 +232,7 @@ td
                  <tr>
                     <td><span class="fieldName"
                             alt="Where the event actually occurs, not the place where
-                            people meet for transport.">Location</span></td>
+                            people meet for transport.">Event Location</span></td>
                     <td>
                         <asp:TextBox ID="Location" runat="server" Width="300px"></asp:TextBox>
                     </td>
