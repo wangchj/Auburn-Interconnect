@@ -18,9 +18,14 @@ namespace AUInterconnect.Views.admin.Proposals
             int propId = RequestUtil.GetProposalId(Request);
             if (propId == -1)
                 Response.Redirect("../Default.aspx");
-            Content.Text = Proposal.GetContent(propId);
+            Content.Text = DataModels.Proposal.GetContent(propId);
         }
 
+        /// <summary>
+        /// Event handler when save button is clicked.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void SaveButton_Click(object sender, EventArgs e)
         {
             try
@@ -32,15 +37,28 @@ namespace AUInterconnect.Views.admin.Proposals
                     return;
                 }
 
-                Proposal.UpdateContent(propId, Content.Text);
-
-                //TODO: Email host
+                //Push the update to the database.
+                DataModels.Proposal.UpdateContent(propId, Content.Text);
+                
+                //Email proposer of the change.
+                DataModels.Proposal.SendUpdateEmail(propId);
 
             }
             catch (Exception ex)
             {
                 ErrorLit.Text = ex.Message;
             }
+        }
+
+        /// <summary>
+        /// Event handler for when approve button is clicked.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void ApproveButton_Click(object sender, EventArgs e)
+        {
+            DataModels.Proposal.Approve(RequestUtil.GetProposalId(Request));
+            Response.Redirect("Default.aspx");
         }
     }
 }

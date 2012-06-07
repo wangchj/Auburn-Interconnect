@@ -11,6 +11,31 @@ namespace AUInterconnect.DataModels
     {
         public const int EventCapacityUnlimited = -2;
 
+        public int EventId { get; set; }
+        public int CreatorId { get; set; }
+        public int ProposalId { get; set; }
+        public DateTime CreateTime { get; set; }
+        public int GuestLimit { get; set; }
+        public string HostOrg { get; set; }
+        public string HostName { get; set; }
+        public string HostEmail { get; set; }
+        public long HostPhone { get; set; }
+        public string EventName { get; set; }
+        public DateTime StartTime { get; set; }
+        public DateTime EndTime { get; set; }
+        public DateTime RegDeadline { get; set; }
+        public string Location { get; set; }
+        public string Descr { get; set; }
+        public string MeetLocation { get; set; }
+        public DateTime MeetTime { get; set; }
+        public string Transportation { get; set; }
+        public bool RequestDrivers { get; set; }
+        public string Costs { get; set; }
+        public string Equipment { get; set; }
+        public string Food { get; set; }
+        public string Other { get; set; }
+
+
         /// <summary>
         /// Checks if an event is full.
         /// </summary>
@@ -252,6 +277,66 @@ namespace AUInterconnect.DataModels
                 object obj = command.ExecuteScalar();
                 return (int)obj;
             }
+        }
+
+        /// <summary>
+        /// Inserts a new Event into the database.
+        /// </summary>
+        /// <param name="e">The event to be inserted.</param>
+        /// <returns>The number of rows affected from this operation.</returns>
+        public static int Insert(Event e)
+        {
+            string queryStr =
+                "INSERT INTO Events (creatorId, proposalId, createTime, guestLimit, hostOrg, " +
+                "hostName, hostEmail, hostPhone, eventName, startTime, endTime, regDeadline, " +
+                "location, descr, meetLocation, meetTime, transportation, requestDrivers, " +
+                "costs, equipment, food, other, approved) " +
+                "VALUES (@creatorId, @proposalId, @createTime, @guestLimit, @hostOrg, @hostName, " +
+                "@hostEmail, @hostPhone, @eventName, @startTime, @endTime, @regDeadline, " +
+                "@location, @descr, @meetLocation, @meetTime, @transportation, " +
+                "@requestDrivers, @costs, @equipment, @food, @other, @approved)";
+
+            using (SqlConnection con = new SqlConnection(Config.SqlConStr))
+            {
+                SqlCommand command = new SqlCommand(queryStr, con);
+                command.Parameters.Add(new SqlParameter("creatorId", e.CreatorId));
+                command.Parameters.Add(new SqlParameter("proposalId", e.ProposalId));
+                command.Parameters.Add(new SqlParameter("createTime", DateTime.Now));
+                command.Parameters.Add(e.GuestLimit == Event.EventCapacityUnlimited ?
+                   new SqlParameter("guestLimit", DBNull.Value) :
+                   new SqlParameter("guestLimit", e.GuestLimit));
+                command.Parameters.Add(new SqlParameter("hostOrg", GetNullableValue(e.HostOrg)));
+                command.Parameters.Add(new SqlParameter("hostName", e.HostName));
+                command.Parameters.Add(new SqlParameter("hostEmail", e.HostName));
+                command.Parameters.Add(new SqlParameter("hostPhone", e.HostPhone));
+                command.Parameters.Add(new SqlParameter("eventName", e.EventName));
+                command.Parameters.Add(new SqlParameter("startTime", e.StartTime));
+                command.Parameters.Add(new SqlParameter("endTime", e.EndTime));
+                command.Parameters.Add(new SqlParameter("regDeadline", e.RegDeadline));
+                command.Parameters.Add(new SqlParameter("location", e.Location));
+                command.Parameters.Add(new SqlParameter("descr", e.Descr));
+                command.Parameters.Add(new SqlParameter("meetLocation", e.MeetLocation));
+                command.Parameters.Add(new SqlParameter("meetTime", e.MeetTime));
+                command.Parameters.Add(new SqlParameter("transportation", e.Transportation));
+                command.Parameters.Add(new SqlParameter("requestDrivers", e.RequestDrivers));
+                command.Parameters.Add(new SqlParameter("costs", GetNullableValue(e.Costs)));
+                command.Parameters.Add(new SqlParameter("equipment", GetNullableValue(e.Equipment)));
+                command.Parameters.Add(new SqlParameter("food", GetNullableValue(e.Food)));
+                command.Parameters.Add(new SqlParameter("other", GetNullableValue(e.Other)));
+                command.Parameters.Add(new SqlParameter("approved", true));
+                con.Open();
+                return command.ExecuteNonQuery();
+            }
+        }
+
+        /// <summary>
+        /// Returns DBNull.Value if o is null; else o.
+        /// </summary>
+        /// <param name="o">object to be checked.</param>
+        /// <returns>DBNull.Value or o</returns>
+        private static object GetNullableValue(object o)
+        {
+            return o == null ? DBNull.Value : o;
         }
     }
 }

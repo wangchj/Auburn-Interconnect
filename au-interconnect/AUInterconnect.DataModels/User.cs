@@ -237,6 +237,29 @@ namespace AUInterconnect.DataModels
             }
         }
 
+        /// <summary>
+        /// Gets the email address of a user from the database.
+        /// </summary>
+        /// <param name="userId">The user id of the user</param>
+        /// <returns>null if user is not found.</returns>
+        /// <exception cref="SqlException"></exception>
+        public static string GetEmailAddr(int userId)
+        {
+            string queryStr = "SELECT email FROM Users " +
+                "WHERE uid=@id";
+
+            using (SqlConnection con = new SqlConnection(Config.SqlConStr))
+            {
+                SqlCommand command = new SqlCommand(queryStr, con);
+                command.Parameters.Add(new SqlParameter("id", userId));
+                con.Open();
+                object obj = command.ExecuteScalar();
+                if (obj == null || obj == DBNull.Value)
+                    return null;
+                return (string)obj;
+            }
+        }
+
         public static int GetAllUserCount()
         {
             string queryStr = "SELECT COUNT(*) FROM Users";

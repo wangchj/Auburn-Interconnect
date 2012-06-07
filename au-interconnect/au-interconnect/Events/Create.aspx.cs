@@ -7,6 +7,9 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Text;
 using AUInterconnect.Configuration;
+using AUInterconnect.DataModels;
+using AUInterconnect.Utilities;
+using System.IO;
 
 namespace AUInterconnect.Views.Events
 {
@@ -23,12 +26,33 @@ namespace AUInterconnect.Views.Events
             {
                 if (ValidateInput())
                 {
-                    decimal eventId = CreateEvent();
+                    DataModels.User user = PageHelper.GetCurrentUser(this);
+                    Event _event = MakeEvent();
+                    DataModels.Proposal.Insert(user.Uid, _event, GetTemplateContent());
+                    
+                    try
+                    {
+                        //Send email to creator
+                        Mailer.Send(user.Email, "Auburn InterConnect Event Proposal",
+                            "An event proposal has been created under your account. " +
+                            "Please login to see the proposal.");
+                        //Send mail to event contact
+                        Mailer.Send(_event.HostEmail, "Auburn InterConnect Event Proposal",
+                            "An event proposal has been submitted with you as the contact person." +
+                            "Please login to see the proposal.");
+                        //Send mail to admin
+                        //Mailer.Send(_event.HostEmail, "Auburn InterConnect Event Proposal",
+                        //    "An event proposal has been submitted with you as the contact person." +
+                        //    "Please login to see the proposal.");
+                    }
+                    catch (Exception) { }
+
                     Response.Redirect("CreateComplete.aspx");
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                msgLbl.Text = ex.Message;
             }
         }
 
@@ -128,7 +152,7 @@ namespace AUInterconnect.Views.Events
 
             return true;
         }
-        
+
         /// <summary>
         /// Gets the Registration Deadline DateTime value from the form.
         /// </summary>
@@ -149,106 +173,161 @@ namespace AUInterconnect.Views.Events
         }
 
         /// <summary>
+        /// Make an Event object from form inputs.
+        /// </summary>
+        /// <returns>An event object.</returns>
+        private Event MakeEvent()
+        {
+            Event e = new Event();
+            e.CreatorId = ((DataModels.User)Session[Const.User]).Uid;
+            e.CreateTime = DateTime.Now;
+            e.GuestLimit = ParseGuestLimit();
+            e.HostOrg = string.IsNullOrEmpty(HostOrg.Text.Trim()) ? null : HostOrg.Text.Trim();
+            e.HostName = HostName.Text.Trim();
+            e.HostEmail = HostEmail.Text.Trim();
+            e.HostPhone = FormatHelper.ParsePhoneNum(HostPhone.Text);
+            e.EventName = EventName.Text.Trim();
+            e.StartTime = DateTime.Parse(StartTimeCtr.Text);
+            e.EndTime = DateTime.Parse(EndTimeCtr.Text);
+            e.RegDeadline = DateTime.Parse(RegDeadlineCtr.Text);
+            e.Location = Location.Text.Trim();
+            e.Descr = Desc.Text.Trim();
+            e.MeetLocation = MeetLocation.Text.Trim();
+            e.MeetTime = DateTime.Parse(MeetTime.Text);
+            e.Transportation = Transport.Text.Trim();
+            e.RequestDrivers = RequestDrivers.Checked;
+            e.Costs = string.IsNullOrEmpty(Costs.Text.Trim()) ? null : Costs.Text.Trim();
+            e.Equipment = string.IsNullOrEmpty(Equipment.Text.Trim()) ? null : Equipment.Text.Trim();
+            e.Food = string.IsNullOrEmpty(Food.Text.Trim()) ? null : Food.Text.Trim();
+            e.Other = string.IsNullOrEmpty(Other.Text.Trim()) ? null : Other.Text.Trim();
+            return e;
+        }
+
+        public string GetTemplateContent()
+        {
+            string path = Request.MapPath("~/App_data/Proposal Templates/Template2/template.txt");
+            using (StreamReader reader = new StreamReader(path))
+            {
+                return reader.ReadToEnd();
+            }
+        }
+
+        /// <summary>
+        /// Parse the guest limit form input.
+        /// </summary>
+        /// <returns>Event.EventCapacityUnlimited if the input is empty; the guest
+        /// limit otherwise.</returns>
+        /// <exception cref="System.FormatException">Input is not an integer.</exception>
+        private int ParseGuestLimit()
+        {
+            string limit = GuestLimit.Text.Trim();
+            if (string.IsNullOrEmpty(limit))
+                return Event.EventCapacityUnlimited;
+            else
+                return int.Parse(limit);
+        }
+
+        /// <summary>
         /// Insert a new event into the database and return the event ID.
         /// </summary>
         /// <returns>-1 if event not inserted.</returns>
-        private decimal CreateEvent()
-        {
-            string queryStr =
-                "INSERT INTO Events (creatorId, createTime, guestLimit, hostOrg, " +
-                "hostName, hostEmail, hostPhone, eventName, startTime, endTime, regDeadline, " +
-                "location, descr, meetLocation, meetTime, transportation, requestDrivers, " +
-                "costs, equipment, food, other) " +
-                "VALUES (@creatorId, @createTime, @guestLimit, @hostOrg, @hostName, " +
-                "@hostEmail, @hostPhone, @eventName, @startTime, @endTime, @regDeadline, " +
-                "@location, @descr, @meetLocation, @meetTime, @transportation, " +
-                "@requestDrivers, @costs, @equipment, @food, @other)";
+        //private decimal CreateEvent()
+        //{
+        //    string queryStr =
+        //        "INSERT INTO Events (creatorId, createTime, guestLimit, hostOrg, " +
+        //        "hostName, hostEmail, hostPhone, eventName, startTime, endTime, regDeadline, " +
+        //        "location, descr, meetLocation, meetTime, transportation, requestDrivers, " +
+        //        "costs, equipment, food, other) " +
+        //        "VALUES (@creatorId, @createTime, @guestLimit, @hostOrg, @hostName, " +
+        //        "@hostEmail, @hostPhone, @eventName, @startTime, @endTime, @regDeadline, " +
+        //        "@location, @descr, @meetLocation, @meetTime, @transportation, " +
+        //        "@requestDrivers, @costs, @equipment, @food, @other)";
 
-            using (SqlConnection con = new SqlConnection(Config.SqlConStr))
-            {
-                SqlCommand command = new SqlCommand(queryStr, con);
-                command.Parameters.Add(new SqlParameter("creatorId",
-                    ((DataModels.User)Session[Const.User]).Uid));
-                command.Parameters.Add(new SqlParameter("createTime",
-                    DateTime.Now));
-                command.Parameters.Add(
-                   string.IsNullOrEmpty(GuestLimit.Text.Trim()) ?
-                   new SqlParameter("guestLimit", DBNull.Value) :
-                   new SqlParameter("guestLimit",
-                       int.Parse(GuestLimit.Text.Trim())));
-                command.Parameters.Add(
-                    string.IsNullOrEmpty(HostOrg.Text.Trim()) ?
-                    new SqlParameter("hostOrg", DBNull.Value) :
-                    new SqlParameter("hostOrg", HostOrg.Text.Trim()));
-                command.Parameters.Add(new SqlParameter("hostName",
-                    HostName.Text.Trim()));
-                command.Parameters.Add(new SqlParameter("hostEmail",
-                    HostEmail.Text.Trim()));
-                command.Parameters.Add(new SqlParameter("hostPhone",
-                    FormatHelper.ParsePhoneNum(HostPhone.Text)));
-                command.Parameters.Add(new SqlParameter("eventName",
-                    EventName.Text.Trim()));
-                command.Parameters.Add(new SqlParameter("startTime",
-                    DateTime.Parse(StartTimeCtr.Text)));
-                command.Parameters.Add(new SqlParameter("endTime",
-                    DateTime.Parse(EndTimeCtr.Text)));
-                command.Parameters.Add(new SqlParameter("regDeadline",
-                    DateTime.Parse(RegDeadlineCtr.Text)));
-                command.Parameters.Add(new SqlParameter("location",
-                    Location.Text.Trim()));
-                command.Parameters.Add(new SqlParameter("descr",
-                    Desc.Text.Trim()));
-                command.Parameters.Add(new SqlParameter("meetLocation",
-                    MeetLocation.Text.Trim()));
-                command.Parameters.Add(new SqlParameter("meetTime",
-                    DateTime.Parse(MeetTime.Text)));
-                command.Parameters.Add(new SqlParameter("transportation",
-                    Transport.Text.Trim()));
-                command.Parameters.Add(new SqlParameter("requestDrivers",
-                    RequestDrivers.Checked));
-                command.Parameters.Add(
-                    string.IsNullOrEmpty(Costs.Text.Trim()) ?
-                    new SqlParameter("costs", DBNull.Value) :
-                    new SqlParameter("costs", Costs.Text.Trim()));
-                command.Parameters.Add(
-                    string.IsNullOrEmpty(Equipment.Text.Trim()) ?
-                    new SqlParameter("equipment", DBNull.Value) :
-                    new SqlParameter("equipment", Equipment.Text.Trim()));
-                command.Parameters.Add(
-                    string.IsNullOrEmpty(Food.Text.Trim()) ?
-                    new SqlParameter("food", DBNull.Value) :
-                    new SqlParameter("food", Food.Text.Trim()));
-                command.Parameters.Add(
-                    string.IsNullOrEmpty(Other.Text.Trim()) ?
-                    new SqlParameter("other", DBNull.Value) :
-                    new SqlParameter("other", Other.Text.Trim()));
+        //    using (SqlConnection con = new SqlConnection(Config.SqlConStr))
+        //    {
+        //        SqlCommand command = new SqlCommand(queryStr, con);
+        //        command.Parameters.Add(new SqlParameter("creatorId",
+        //            ((DataModels.User)Session[Const.User]).Uid));
+        //        command.Parameters.Add(new SqlParameter("createTime",
+        //            DateTime.Now));
+        //        command.Parameters.Add(
+        //           string.IsNullOrEmpty(GuestLimit.Text.Trim()) ?
+        //           new SqlParameter("guestLimit", DBNull.Value) :
+        //           new SqlParameter("guestLimit",
+        //               int.Parse(GuestLimit.Text.Trim())));
+        //        command.Parameters.Add(
+        //            string.IsNullOrEmpty(HostOrg.Text.Trim()) ?
+        //            new SqlParameter("hostOrg", DBNull.Value) :
+        //            new SqlParameter("hostOrg", HostOrg.Text.Trim()));
+        //        command.Parameters.Add(new SqlParameter("hostName",
+        //            HostName.Text.Trim()));
+        //        command.Parameters.Add(new SqlParameter("hostEmail",
+        //            HostEmail.Text.Trim()));
+        //        command.Parameters.Add(new SqlParameter("hostPhone",
+        //            FormatHelper.ParsePhoneNum(HostPhone.Text)));
+        //        command.Parameters.Add(new SqlParameter("eventName",
+        //            EventName.Text.Trim()));
+        //        command.Parameters.Add(new SqlParameter("startTime",
+        //            DateTime.Parse(StartTimeCtr.Text)));
+        //        command.Parameters.Add(new SqlParameter("endTime",
+        //            DateTime.Parse(EndTimeCtr.Text)));
+        //        command.Parameters.Add(new SqlParameter("regDeadline",
+        //            DateTime.Parse(RegDeadlineCtr.Text)));
+        //        command.Parameters.Add(new SqlParameter("location",
+        //            Location.Text.Trim()));
+        //        command.Parameters.Add(new SqlParameter("descr",
+        //            Desc.Text.Trim()));
+        //        command.Parameters.Add(new SqlParameter("meetLocation",
+        //            MeetLocation.Text.Trim()));
+        //        command.Parameters.Add(new SqlParameter("meetTime",
+        //            DateTime.Parse(MeetTime.Text)));
+        //        command.Parameters.Add(new SqlParameter("transportation",
+        //            Transport.Text.Trim()));
+        //        command.Parameters.Add(new SqlParameter("requestDrivers",
+        //            RequestDrivers.Checked));
+        //        command.Parameters.Add(
+        //            string.IsNullOrEmpty(Costs.Text.Trim()) ?
+        //            new SqlParameter("costs", DBNull.Value) :
+        //            new SqlParameter("costs", Costs.Text.Trim()));
+        //        command.Parameters.Add(
+        //            string.IsNullOrEmpty(Equipment.Text.Trim()) ?
+        //            new SqlParameter("equipment", DBNull.Value) :
+        //            new SqlParameter("equipment", Equipment.Text.Trim()));
+        //        command.Parameters.Add(
+        //            string.IsNullOrEmpty(Food.Text.Trim()) ?
+        //            new SqlParameter("food", DBNull.Value) :
+        //            new SqlParameter("food", Food.Text.Trim()));
+        //        command.Parameters.Add(
+        //            string.IsNullOrEmpty(Other.Text.Trim()) ?
+        //            new SqlParameter("other", DBNull.Value) :
+        //            new SqlParameter("other", Other.Text.Trim()));
 
-                //command.Parameters.Add(
-                //    string.IsNullOrEmpty(maxRegTxb.Text.Trim())?
-                //    new SqlParameter("maxReg", DBNull.Value) :
-                //    new SqlParameter("maxReg", 
-                //        int.Parse(maxRegTxb.Text.Trim())));
-                //command.Parameters.Add(
-                //    string.IsNullOrEmpty(guestTxb.Text.Trim()) ?
-                //    new SqlParameter("maxGuest", DBNull.Value) :
-                //    new SqlParameter("maxGuest",
-                //        int.Parse(maxRegTxb.Text.Trim())));
-                //command.Parameters.Add(new SqlParameter("adminOk",
-                //    "0"));
-                //command.Parameters.Add(new SqlParameter("hostOk",
-                //    "1"));
-                con.Open();
-                int r = command.ExecuteNonQuery();
+        //        //command.Parameters.Add(
+        //        //    string.IsNullOrEmpty(maxRegTxb.Text.Trim())?
+        //        //    new SqlParameter("maxReg", DBNull.Value) :
+        //        //    new SqlParameter("maxReg", 
+        //        //        int.Parse(maxRegTxb.Text.Trim())));
+        //        //command.Parameters.Add(
+        //        //    string.IsNullOrEmpty(guestTxb.Text.Trim()) ?
+        //        //    new SqlParameter("maxGuest", DBNull.Value) :
+        //        //    new SqlParameter("maxGuest",
+        //        //        int.Parse(maxRegTxb.Text.Trim())));
+        //        //command.Parameters.Add(new SqlParameter("adminOk",
+        //        //    "0"));
+        //        //command.Parameters.Add(new SqlParameter("hostOk",
+        //        //    "1"));
+        //        con.Open();
+        //        int r = command.ExecuteNonQuery();
 
-                if (r < 1)
-                    return -1;
+        //        if (r < 1)
+        //            return -1;
 
-                //Get the ID of the event created.
-                queryStr = "SELECT @@IDENTITY";
-                command = new SqlCommand(queryStr, con);
-                object o = command.ExecuteScalar();
-                return (decimal)o;
-            }
-        }
+        //        //Get the ID of the event created.
+        //        queryStr = "SELECT @@IDENTITY";
+        //        command = new SqlCommand(queryStr, con);
+        //        object o = command.ExecuteScalar();
+        //        return (decimal)o;
+        //    }
+        //}
     }
 }

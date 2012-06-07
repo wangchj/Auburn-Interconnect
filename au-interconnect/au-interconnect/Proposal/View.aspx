@@ -1,16 +1,14 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin/Admin.master" AutoEventWireup="true" 
-CodeBehind="View.aspx.cs" Inherits="AUInterconnect.Views.admin.Proposals.View" ValidateRequest="false"%>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AULayout1.master" AutoEventWireup="true" CodeBehind="View.aspx.cs" Inherits="AUInterconnect.Views.Proposal.View" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="title" runat="server">
-</asp:Content>
+<asp:Content ID="Content1" ContentPlaceHolderID="title" runat="server">View Proposal</asp:Content>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="HeadCount" runat="server">
-    <script type="text/javascript" src="../../Scripts/tiny_mce/tiny_mce.js"></script>
+<asp:Content ID="Content2" ContentPlaceHolderID="HeadContent" runat="server">
+ <script type="text/javascript" src="../Scripts/tiny_mce/tiny_mce.js"></script>
 
 <script type="text/javascript">
     tinyMCE.init({
         // General options
-        //readonly: "true",
+        readonly: "true",
         mode: "textareas",
         theme: "advanced",
         plugins: "autolink,lists,pagebreak,style,advhr,advlink,iespell,inlinepopups,insertdatetime,preview,searchreplace,contextmenu,paste,noneditable,visualchars,nonbreaking,xhtmlxtras,template,wordcount,advlist,visualblocks",
@@ -26,7 +24,7 @@ CodeBehind="View.aspx.cs" Inherits="AUInterconnect.Views.admin.Proposals.View" V
         theme_advanced_resizing: true,
 
         // Example content CSS (should be your site CSS)
-        content_css: "content.css,style.css",
+        content_css: "../admin/Proposals/content.css,../admin/Proposals/style.css",
 
         // Drop lists for link/image/media/template dialogs
         template_external_list_url: "lists/template_list.js",
@@ -54,14 +52,17 @@ CodeBehind="View.aspx.cs" Inherits="AUInterconnect.Views.admin.Proposals.View" V
 </script>
 </asp:Content>
 
-<asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
-    <asp:Literal ID="ErrorLit" runat="server"></asp:Literal>
+<asp:Content ID="Content4" ContentPlaceHolderID="breadcrumb" runat="server">
+</asp:Content>
+
+<asp:Content ID="Content5" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Literal ID="ErrorLit" runat="server"></asp:Literal>
+
 <asp:TextBox ID="Content" runat="server" TextMode="MultiLine" 
     Height="600px" Width="100%"></asp:TextBox>
-    <p>
-        <asp:Button ID="SaveButton" runat="server" Text="Save and Notify" 
-            onclick="SaveButton_Click" />
-        <asp:Button ID="ApproveButton" runat="server" Text="Approve and Notify" 
-            onclick="ApproveButton_Click" />
-    </p>
-    </asp:Content>
+</asp:Content>
+
+<asp:Content ID="Content6" ContentPlaceHolderID="sidebar" runat="server">
+</asp:Content>
+<asp:Content ID="Content7" ContentPlaceHolderID="lastUpdated" runat="server">
+</asp:Content>

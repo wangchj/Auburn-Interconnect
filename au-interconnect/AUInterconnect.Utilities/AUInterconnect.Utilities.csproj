@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{63D4D7FE-8494-4A32-8284-99CC9BA64EC5}</ProjectGuid>
+    <ProjectGuid>{95E3E2C1-68EA-4B29-AD06-A91C4B751494}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AUInterconnect.DataModels</RootNamespace>
-    <AssemblyName>AUInterconnect.DataModels</AssemblyName>
+    <RootNamespace>AUInterconnect.Utilities</RootNamespace>
+    <AssemblyName>AUInterconnect.Utilities</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -33,7 +33,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,26 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Event.cs" />
-    <Compile Include="EventRegistration.cs" />
-    <Compile Include="EventRoster.cs" />
-    <Compile Include="Host.cs" />
-    <Compile Include="PasswordReset.cs" />
+    <Compile Include="Mailer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Proposal.cs" />
-    <Compile Include="ProposalParser.cs" />
-    <Compile Include="User.cs" />
-    <Compile Include="UserCredential.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\AUInterconnect.Config\AUInterconnect.Configuration.csproj">
-      <Project>{6ABB399D-907D-4530-9AF2-3D8F85708B77}</Project>
-      <Name>AUInterconnect.Configuration</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AUInterconnect.Utilities\AUInterconnect.Utilities.csproj">
-      <Project>{95E3E2C1-68EA-4B29-AD06-A91C4B751494}</Project>
-      <Name>AUInterconnect.Utilities</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

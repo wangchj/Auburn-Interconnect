@@ -12,12 +12,10 @@ namespace AUInterconnect.Views.admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            //TODO:Check permission. Very important!!
-
+            //Note:Permission is checked by Admin.Master
 
             //Proposal stats
-            PenPropLink.Text = Proposal.GetPendingProposalCount() + PenPropLink.Text;
+            PenPropLink.Text = DataModels.Proposal.GetPendingProposalCount() + PenPropLink.Text;
 
             //Event stats
             ActiveEventsCount.Text = Event.GetActiveEventCount().ToString() + ActiveEventsCount.Text;

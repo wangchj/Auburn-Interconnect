@@ -11,7 +11,9 @@ namespace AUInterconnect.Views.admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //TODO:Check permission. Very important!!
+            //Check permission. Very important!!
+            PageHelper.LoginAsAdmin(this.Page, false);
+            
         }
     }
 }

@@ -34,5 +34,8 @@
 <h2>Other Notes</h2>
 <p>[Other]</p>
 
-<h2>Limit</h2>
+<h2>Event Capacity</h2>
 <p>[EventCapacity]</p>
+
+<h2>Registration Deadline</h2>
+<p>[RegDeadline]</p>

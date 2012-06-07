@@ -7,7 +7,21 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AUInterconnect.DataModels",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AUInterconnect.Configuration", "AUInterconnect.Config\AUInterconnect.Configuration.csproj", "{6ABB399D-907D-4530-9AF2-3D8F85708B77}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AUInterconnect.DataModelsTests", "AUInterconnect.DataModelsTests\AUInterconnect.DataModelsTests.csproj", "{1BB5EB10-2DD9-4EA1-8BB9-2B048B22953B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D35A22D1-A945-4275-BA6F-5F503D5DF711}"
+	ProjectSection(SolutionItems) = preProject
+		AUInterconnect.vsmdi = AUInterconnect.vsmdi
+		Local.testsettings = Local.testsettings
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AUInterconnect.Utilities", "AUInterconnect.Utilities\AUInterconnect.Utilities.csproj", "{95E3E2C1-68EA-4B29-AD06-A91C4B751494}"
+EndProject
 Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = AUInterconnect.vsmdi
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -25,6 +39,14 @@ Global
 		{6ABB399D-907D-4530-9AF2-3D8F85708B77}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6ABB399D-907D-4530-9AF2-3D8F85708B77}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6ABB399D-907D-4530-9AF2-3D8F85708B77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BB5EB10-2DD9-4EA1-8BB9-2B048B22953B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BB5EB10-2DD9-4EA1-8BB9-2B048B22953B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BB5EB10-2DD9-4EA1-8BB9-2B048B22953B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BB5EB10-2DD9-4EA1-8BB9-2B048B22953B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95E3E2C1-68EA-4B29-AD06-A91C4B751494}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95E3E2C1-68EA-4B29-AD06-A91C4B751494}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95E3E2C1-68EA-4B29-AD06-A91C4B751494}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95E3E2C1-68EA-4B29-AD06-A91C4B751494}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

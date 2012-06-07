@@ -4,8 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Data.SqlClient;
 using System.Text;
-using System.Net.Mail;
 using AUInterconnect.Configuration;
+using AUInterconnect.Utilities;
 
 namespace AUInterconnect.DataModels
 {
@@ -34,10 +34,6 @@ namespace AUInterconnect.DataModels
 
         private static void EmailResetCode(string email, string code)
         {
-            SmtpClient client = new SmtpClient("tigerout.auburn.edu");
-            MailAddress from = new MailAddress("vininlj@auburn.edu");
-            MailAddress to = new MailAddress(email);
-            
             //Message content.
             StringBuilder message = new StringBuilder(
                 "We received a request to reset the password associated with this e-mail address. ");
@@ -45,15 +41,7 @@ namespace AUInterconnect.DataModels
             message.Append(Environment.NewLine).Append(Environment.NewLine);
             message.Append("You may reset your password by entering the reset code at this URL:");
             message.Append("https://fp.auburn.edu/interconnect/user/PwdReset.aspx");
-
-            MailMessage mail = new MailMessage(from, to);
-            mail.Body = message.ToString();
-            mail.BodyEncoding = System.Text.Encoding.UTF8;
-
-            //Email subject
-            mail.Subject = "Auburn Interconnect Password Reset";
-            mail.SubjectEncoding = System.Text.Encoding.UTF8;
-            client.Send(mail);
+            Mailer.Send(email, "Auburn Interconnect Password Reset", message.ToString());
         }
 
         private static void RecordResetRequest(string email, string code)
@@ -98,24 +86,17 @@ namespace AUInterconnect.DataModels
             return false;
         }
 
+        /// <summary>
+        /// Sends the new temporary password to user.
+        /// </summary>
+        /// <param name="email">Email address of receiver.</param>
+        /// <param name="newPwd">User's new password.</param>
         private static void EmailPassword(string email, string newPwd)
         {
-            SmtpClient client = new SmtpClient("tigerout.auburn.edu");
-            MailAddress from = new MailAddress("vininlj@auburn.edu");
-            MailAddress to = new MailAddress(email);
-
             //Message content.
             StringBuilder message = new StringBuilder(
                 "Your new temporary password is ").Append(newPwd);
-
-            MailMessage mail = new MailMessage(from, to);
-            mail.Body = message.ToString();
-            mail.BodyEncoding = System.Text.Encoding.UTF8;
-
-            //Email subject
-            mail.Subject = "Auburn Interconnect";
-            mail.SubjectEncoding = System.Text.Encoding.UTF8;
-            client.Send(mail);
+            Mailer.Send(email, "Auburn Interconnect", message.ToString());
         }
 
         private static void UpdatePassword(string email, string newPwd)
