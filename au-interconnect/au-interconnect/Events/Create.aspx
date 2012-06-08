@@ -367,12 +367,15 @@ td
             for this event. If blank, there is no limit.">Event Capacity</span></td>
             <td>
                 <asp:TextBox ID="GuestLimit" runat="server" 
-                    Width="59px"></asp:TextBox>                
+                    Width="59px">25</asp:TextBox>                
+            </td>
+            <td>
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" 
                     ControlToValidate="GuestLimit" ErrorMessage="This should be a positive number" 
                     ValidationExpression="\d+" Display="Dynamic" CssClass="errorMsg"></asp:RegularExpressionValidator>
-            </td>
-            <td>
+                <asp:RequiredFieldValidator ID="CapReq" runat="server" 
+                    ControlToValidate="GuestLimit" CssClass="errorMsg" Display="Dynamic" 
+                    ErrorMessage="Event capacity is required"></asp:RequiredFieldValidator>
             </td>
         </tr>
                  </table>
