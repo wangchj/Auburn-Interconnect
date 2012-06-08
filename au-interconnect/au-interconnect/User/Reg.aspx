@@ -25,62 +25,69 @@ Auburn Interconnect - User Registration
     <p>
     <table border="0" cellspacing="5">
     <tr>
-        <td>First Name*</td>
+        <td>First Name</td>
         <td>
             <asp:TextBox ID="fnTxb" runat="server" Width="200px" EnableViewState="False"></asp:TextBox>
         </td>
         <td>
-            <asp:RequiredFieldValidator ID="FnReqFldVal" runat="server" ErrorMessage="First Name is required" ControlToValidate="fnTxb"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="FnReqFldVal" runat="server" 
+                ErrorMessage="First Name is required" ControlToValidate="fnTxb" 
+                CssClass="errorMsg"></asp:RequiredFieldValidator>
         </td>
     </tr>
     <tr>
-        <td>Last Name*</td>
+        <td>Last Name</td>
         <td>
             <asp:TextBox ID="lnTxb" runat="server" Width="200px"></asp:TextBox>
         </td>
         <td>
             <asp:RequiredFieldValidator ID="LnReqFldVal" runat="server" 
                 ErrorMessage="Last Name is required" ControlToValidate="lnTxb" 
-                Display="Dynamic"></asp:RequiredFieldValidator>
+                Display="Dynamic" CssClass="errorMsg"></asp:RequiredFieldValidator>
         </td>
     </tr>
     <tr>
         <td>Phone</td>
         <td>
             <asp:TextBox ID="phoneTxb" runat="server" Width="200px"></asp:TextBox></td>
-        <td></td>
+        <td>
+            <asp:RequiredFieldValidator ID="PhoneRequired" runat="server" 
+                ControlToValidate="phoneTxb" CssClass="errorMsg" 
+                ErrorMessage="Phone is required"></asp:RequiredFieldValidator>
+        </td>
     </tr>
     <tr>
-        <td>Email*</td>
+        <td>EmailEmail</td>
         <td>
             <asp:TextBox ID="emailTxb" runat="server" Width="200px"></asp:TextBox></td>
         <td>
             <asp:RequiredFieldValidator ID="EmailReqFldVal" runat="server" 
-                ErrorMessage="Email is required" ControlToValidate="emailTxb" Display="Dynamic"></asp:RequiredFieldValidator>
+                ErrorMessage="Email is required" ControlToValidate="emailTxb" 
+                Display="Dynamic" CssClass="errorMsg"></asp:RequiredFieldValidator>
             <asp:RegularExpressionValidator ID="EmailRegexVal" runat="server" 
                 ErrorMessage="Email is invalid" ControlToValidate="emailTxb" 
                 ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" 
-                Display="Dynamic"></asp:RegularExpressionValidator>
+                Display="Dynamic" CssClass="errorMsg"></asp:RegularExpressionValidator>
         </td>
     </tr>
     <tr>
-        <td>Re-enter Email*</td>
+        <td>Re-enter Email
         <td>
             <asp:TextBox ID="vemailTxb" runat="server" Width="200px"></asp:TextBox></td>
         <td>
             <asp:CompareValidator ID="VemailCompVal" runat="server" 
                 ErrorMessage="Emails do not match" ControlToValidate="vemailTxb" 
-                ControlToCompare="emailTxb" Display="Dynamic"></asp:CompareValidator>
+                ControlToCompare="emailTxb" Display="Dynamic" CssClass="errorMsg"></asp:CompareValidator>
         </td>
     </tr>
     <tr>
-        <td>New Password*</td>
+        <td>New Password</td>
         <td>
             <asp:TextBox ID="pwdTxb" runat="server" TextMode="Password" Width="200px"></asp:TextBox></td>
         <td>
             <asp:RequiredFieldValidator ID="PwdReqFldVal" runat="server" 
                 ErrorMessage="Password is required" ControlToValidate="pwdTxb" 
-                Display="Dynamic"></asp:RequiredFieldValidator>
+                Display="Dynamic" CssClass="errorMsg"></asp:RequiredFieldValidator>
         </td>
     </tr>
     <tr>
@@ -92,7 +99,8 @@ Auburn Interconnect - User Registration
     <tr>
         <td></td>
         <td colspan="2">
-            <asp:Label ID="ErrorLbl" runat="server" EnableViewState="False"></asp:Label></td>
+            <asp:Label ID="ErrorLbl" runat="server" EnableViewState="False" 
+                CssClass="errorMsg"></asp:Label></td>
     </tr>
     <tr>
         <td></td>

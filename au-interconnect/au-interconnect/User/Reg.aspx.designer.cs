@@ -58,6 +58,15 @@ namespace AUInterconnect.Views.User {
         protected global::System.Web.UI.WebControls.TextBox phoneTxb;
         
         /// <summary>
+        /// PhoneRequired control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator PhoneRequired;
+        
+        /// <summary>
         /// emailTxb control.
         /// </summary>
         /// <remarks>
