@@ -94,24 +94,6 @@ namespace AUInterconnect.Views.User {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator EmailRegexVal;
         
         /// <summary>
-        /// vemailTxb control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox vemailTxb;
-        
-        /// <summary>
-        /// VemailCompVal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator VemailCompVal;
-        
-        /// <summary>
         /// pwdTxb control.
         /// </summary>
         /// <remarks>

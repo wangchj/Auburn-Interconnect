@@ -57,7 +57,7 @@ Auburn Interconnect - User Registration
         </td>
     </tr>
     <tr>
-        <td>EmailEmail</td>
+        <td>Email</td>
         <td>
             <asp:TextBox ID="emailTxb" runat="server" Width="200px"></asp:TextBox></td>
         <td>
@@ -68,16 +68,6 @@ Auburn Interconnect - User Registration
                 ErrorMessage="Email is invalid" ControlToValidate="emailTxb" 
                 ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" 
                 Display="Dynamic" CssClass="errorMsg"></asp:RegularExpressionValidator>
-        </td>
-    </tr>
-    <tr>
-        <td>Re-enter Email
-        <td>
-            <asp:TextBox ID="vemailTxb" runat="server" Width="200px"></asp:TextBox></td>
-        <td>
-            <asp:CompareValidator ID="VemailCompVal" runat="server" 
-                ErrorMessage="Emails do not match" ControlToValidate="vemailTxb" 
-                ControlToCompare="emailTxb" Display="Dynamic" CssClass="errorMsg"></asp:CompareValidator>
         </td>
     </tr>
     <tr>
