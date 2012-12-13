@@ -307,7 +307,7 @@ namespace AUInterconnect.DataModels
                    new SqlParameter("guestLimit", e.GuestLimit));
                 command.Parameters.Add(new SqlParameter("hostOrg", GetNullableValue(e.HostOrg)));
                 command.Parameters.Add(new SqlParameter("hostName", e.HostName));
-                command.Parameters.Add(new SqlParameter("hostEmail", e.HostName));
+                command.Parameters.Add(new SqlParameter("hostEmail", e.HostEmail));
                 command.Parameters.Add(new SqlParameter("hostPhone", e.HostPhone));
                 command.Parameters.Add(new SqlParameter("eventName", e.EventName));
                 command.Parameters.Add(new SqlParameter("startTime", e.StartTime));
