@@ -51,6 +51,7 @@
     <Compile Include="ProposalParser.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserCredential.cs" />
+    <Compile Include="WaitingList.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AUInterconnect.Config\AUInterconnect.Configuration.csproj">

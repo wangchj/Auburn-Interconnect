@@ -76,6 +76,7 @@
     <Content Include="admin\Users\Default.aspx" />
     <Content Include="EventEntryCntrl.ascx" />
     <Content Include="Events\CreateComplete.aspx" />
+    <Content Include="Events\EventFull.aspx" />
     <Content Include="Events\EventHostAgreement.htm" />
     <Content Include="Events\EventDetails.aspx" />
     <Content Include="Events\EventSignupComplete.aspx" />
@@ -298,6 +299,13 @@
     </Compile>
     <Compile Include="Events\EventDetails.aspx.designer.cs">
       <DependentUpon>EventDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Events\EventFull.aspx.cs">
+      <DependentUpon>EventFull.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Events\EventFull.aspx.designer.cs">
+      <DependentUpon>EventFull.aspx</DependentUpon>
     </Compile>
     <Compile Include="Events\EventSignupComplete.aspx.cs">
       <DependentUpon>EventSignupComplete.aspx</DependentUpon>

@@ -13,5 +13,8 @@ namespace AUInterconnect.Configuration
         public const string IsAuStudent ="IsAuStudent";
         public const string ProposalId = "ProposalId";
         public const string AuthAuStud = "authAuStud";
+
+        public const string EventIdEquals = EventId + "=";
+        public const string AuthAuStudEquals = AuthAuStud + "=";
     }
 }

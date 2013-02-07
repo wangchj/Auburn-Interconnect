@@ -36,7 +36,7 @@ namespace AUInterconnect.Views.Events
             }
             debUser.IsAuStudent = true;
 #endif
-            DataModels.User user = (DataModels.User)Session[Const.User];
+                DataModels.User user = (DataModels.User)Session[Const.User];
                 if (user == null || !user.IsAuStudent)
                 {
                     string returnUrl = HttpUtility.UrlEncode(

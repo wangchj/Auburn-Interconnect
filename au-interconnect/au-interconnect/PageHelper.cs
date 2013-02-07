@@ -54,7 +54,8 @@ namespace AUInterconnect
                 {
                     string returnUrl = HttpUtility.UrlEncode(
                         page.Request.Url.ToString());
-                    string url = "~/User/Login.aspx?ReturnUrl=" + returnUrl;
+                    string url = "~/User/Login.aspx?ReturnUrl=" + returnUrl +
+                        (checkStudent ? '&' + Const.AuthAuStudEquals + '1' : string.Empty);
                     page.Response.Redirect(url, true);
                 }
 

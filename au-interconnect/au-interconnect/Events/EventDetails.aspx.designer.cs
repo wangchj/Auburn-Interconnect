@@ -13,6 +13,15 @@ namespace AUInterconnect.Views.Events {
     public partial class EventDetails {
         
         /// <summary>
+        /// ErrorLit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ErrorLit;
+        
+        /// <summary>
         /// EventName control.
         /// </summary>
         /// <remarks>
@@ -130,6 +139,15 @@ namespace AUInterconnect.Views.Events {
         protected global::System.Web.UI.WebControls.Literal Costs;
         
         /// <summary>
+        /// RegPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel RegPanel;
+        
+        /// <summary>
         /// regBtn control.
         /// </summary>
         /// <remarks>
@@ -137,5 +155,23 @@ namespace AUInterconnect.Views.Events {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button regBtn;
+        
+        /// <summary>
+        /// EventFullPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel EventFullPanel;
+        
+        /// <summary>
+        /// AddToWL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink AddToWL;
     }
 }

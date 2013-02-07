@@ -58,4 +58,44 @@
                 QueryStringField="EventId" />
         </SelectParameters>
     </asp:SqlDataSource>
+    <br />
+    <br />
+    <h1>Waiting List</h1>
+    <p>
+        <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" 
+            CellPadding="4" DataSourceID="SqlDataSource3" ForeColor="#333333" 
+            GridLines="None" Width="100%">
+            <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+            <Columns>
+                <asp:BoundField DataField="name" HeaderText="Name" ReadOnly="True" 
+                    SortExpression="name">
+                <HeaderStyle HorizontalAlign="Left" />
+                </asp:BoundField>
+                <asp:BoundField DataField="email" HeaderText="Email" SortExpression="email">
+                <HeaderStyle HorizontalAlign="Left" />
+                </asp:BoundField>
+                <asp:BoundField DataField="phone" HeaderText="Phone" SortExpression="phone">
+                <HeaderStyle HorizontalAlign="Left" />
+                </asp:BoundField>
+            </Columns>
+            <EditRowStyle BackColor="#999999" />
+            <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+            <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+            <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+            <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+            <SortedAscendingCellStyle BackColor="#E9E7E2" />
+            <SortedAscendingHeaderStyle BackColor="#506C8C" />
+            <SortedDescendingCellStyle BackColor="#FFFDF8" />
+            <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+        </asp:GridView>
+        <asp:SqlDataSource ID="SqlDataSource3" runat="server" 
+            ConnectionString="<%$ ConnectionStrings:SqlServer %>" 
+            SelectCommand="SELECT Users.fname + ' ' + Users.lname AS name, Users.email, Users.phone FROM Users INNER JOIN WaitingList ON Users.uid = WaitingList.userId WHERE (WaitingList.eventId = @eventId)">
+            <SelectParameters>
+                <asp:QueryStringParameter DefaultValue="1" Name="eventId" 
+                    QueryStringField="EventId" />
+            </SelectParameters>
+        </asp:SqlDataSource>
+    </p>
 </asp:Content>

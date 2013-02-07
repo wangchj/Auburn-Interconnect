@@ -39,7 +39,6 @@ namespace AUInterconnect.Views.Events
 
             try
             {
-
                 int eventId = 0;
                 if (eidStr == null || !int.TryParse(eidStr, out eventId))
                     Response.Redirect("~/Default.aspx", true);
@@ -49,14 +48,21 @@ namespace AUInterconnect.Views.Events
                     Response.Redirect("~/Default.aspx", true);
 
                 //Hide registration button if user is already registered.
-                if (EventRegistration.HasRegistration(user.Uid, eventId))
+                if (user!=null && EventRegistration.HasRegistration(user.Uid, eventId))
                 {
-                    regBtn.Visible = false;
+                    RegPanel.Visible = false;
                 }
-
+                //Show hidden event full message if event is full.
+                if(Event.IsFull(eventId))
+                {
+                    RegPanel.Visible = false;
+                    EventFullPanel.Visible = true;
+                    AddToWL.NavigateUrl = "EventFull.aspx?" + Const.EventIdEquals + eventId;
+                }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                ErrorLit.Text = ex.Message;
             }
         }
 
@@ -118,7 +124,15 @@ namespace AUInterconnect.Views.Events
             try
             {
                 int eventId = RequestUtil.GetEventId(Request);
-                string url = "~/Events/Signup.aspx?" + Const.EventId + '=' + eventId;
+                string url;
+
+                if (Event.IsFull(eventId))
+                    //If event is full, redirect to event full page.
+                    url = "EventFull.aspx?" + Const.EventId + '=' + eventId;
+                else
+                    //if event is not full, redirect to sign up page.
+                    url = "~/Events/Signup.aspx?" + Const.EventId + '=' + eventId;
+                
                 Response.Redirect(url, true);
             }
             catch (Exception ex)

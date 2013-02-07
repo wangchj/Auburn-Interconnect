@@ -14,8 +14,9 @@ td.fldLbl{font-weight:bold}
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Literal ID="ErrorLit" runat="server"></asp:Literal>
 <h1><asp:Literal ID="EventName" runat="server"></asp:Literal></h1>
-        
+    
         <asp:Literal ID="BigEventTime" runat="server" Visible="false"></asp:Literal>
         
     <p>
@@ -39,8 +40,15 @@ td.fldLbl{font-weight:bold}
         <tr><td>Costs</td><td><asp:Literal ID="Costs" runat="server"></asp:Literal></td></tr>
         </table>
 
-    <br />
-    <p>
-                <asp:Button ID="regBtn" runat="server" Text="Sign Up" onclick="regBtn_Click" />
-    </p>
+    <asp:Panel ID="RegPanel" runat="server">
+        <hr />
+        <asp:Button ID="regBtn" runat="server" Text="Sign Up" onclick="regBtn_Click" />
+    </asp:Panel>
+
+    <asp:Panel ID="EventFullPanel" runat="server" Visible="False">
+    <hr />
+        The event is already full. Please click
+        <asp:HyperLink ID="AddToWL" runat="server">here</asp:HyperLink>
+        to be added to the waiting list<sup>?</sup>.
+    </asp:Panel>
 </asp:Content>
