@@ -77,6 +77,21 @@
                 <asp:BoundField DataField="phone" HeaderText="Phone" SortExpression="phone">
                 <HeaderStyle HorizontalAlign="Left" />
                 </asp:BoundField>
+                <asp:BoundField DataField="signupTime" HeaderText="Signup Time" SortExpression="signupTime">
+                <HeaderStyle HorizontalAlign="Left" />
+                </asp:BoundField>
+                <asp:TemplateField ShowHeader="False">
+                    <ItemTemplate>
+                        <asp:Button ID="Button1" runat="server" Text="Attend" onclick="Button1_Click" 
+                            ToolTip='<%# Eval("eventId") + "-" + Eval("userId") %>' UseSubmitBehavior="False" />
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField>
+                    <ItemTemplate>
+                        <asp:Button ID="RemoveBtn" runat="server" onclick="RemoveBtn_Click" 
+                            Text="Remove" ToolTip='<%# Eval("eventId") + "-" + Eval("userId") %>' />
+                    </ItemTemplate>
+                </asp:TemplateField>
             </Columns>
             <EditRowStyle BackColor="#999999" />
             <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -91,7 +106,7 @@
         </asp:GridView>
         <asp:SqlDataSource ID="SqlDataSource3" runat="server" 
             ConnectionString="<%$ ConnectionStrings:SqlServer %>" 
-            SelectCommand="SELECT Users.fname + ' ' + Users.lname AS name, Users.email, Users.phone FROM Users INNER JOIN WaitingList ON Users.uid = WaitingList.userId WHERE (WaitingList.eventId = @eventId)">
+            SelectCommand="SELECT WaitingList.eventId, WaitingList.userId, Users.fname + ' ' + Users.lname AS name, Users.email, Users.phone, WaitingList.signupTime FROM Users INNER JOIN WaitingList ON Users.uid = WaitingList.userId WHERE (WaitingList.eventId = @eventId) ORDER BY signupTime DESC">
             <SelectParameters>
                 <asp:QueryStringParameter DefaultValue="1" Name="eventId" 
                     QueryStringField="EventId" />

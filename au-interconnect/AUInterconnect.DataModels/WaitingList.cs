@@ -52,5 +52,22 @@ namespace AUInterconnect.DataModels
                 return command.ExecuteNonQuery();
             }
         }
+
+        public static void Remove(int userId, int eventId)
+        {
+            if (!IsOnWaitingList(userId, eventId))
+                throw new ApplicationException("User is not on the waiting list to be removed.");
+
+            string queryStr = "DELETE FROM WaitingList WHERE userId = @userId and eventId = @eventId";
+
+            using (SqlConnection con = new SqlConnection(Config.SqlConStr))
+            {
+                SqlCommand command = new SqlCommand(queryStr, con);
+                command.Parameters.Add(new SqlParameter("userId", userId));
+                command.Parameters.Add(new SqlParameter("eventId", eventId));
+                con.Open();
+                command.ExecuteNonQuery();
+            }
+        }
     }
 }

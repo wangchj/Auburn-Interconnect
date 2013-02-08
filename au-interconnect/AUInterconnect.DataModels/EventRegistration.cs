@@ -211,5 +211,33 @@ namespace AUInterconnect.DataModels
             return cap == Event.EventCapacityUnlimited ||
                 (count + headCount) <= cap;
         }
+
+        /// <summary>
+        /// Puts an user into an event without checking the capacity of the
+        /// event.
+        /// </summary>
+        /// <param name="eventId"></param>
+        /// <param name="userId"></param>
+        /// <param name="groupSize"></param>
+        /// <param name="canDrive"></param>
+        /// <param name="vehicleCap"></param>
+        public static void ForceInsert(int eventId, int userId, int groupSize,
+            bool canDrive, int vehicleCap)
+        {
+            string str = "INSERT INTO EventRegs (eventId, userId, headCount, " +
+                "canDrive, vehicleCap) VALUES(@eventId, @userId, @headCount, " +
+                "@canDrive, @vehicleCap)";
+            using (SqlConnection con = new SqlConnection(Config.SqlConStr))
+            {
+                SqlCommand command = new SqlCommand(str, con);
+                command.Parameters.Add(new SqlParameter("eventId", eventId));
+                command.Parameters.Add(new SqlParameter("userId", userId));
+                command.Parameters.Add(new SqlParameter("headCount", groupSize));
+                command.Parameters.Add(new SqlParameter("canDrive", canDrive));
+                command.Parameters.Add(new SqlParameter("vehicleCap", vehicleCap));
+                con.Open();
+                command.ExecuteNonQuery();
+            }
+        }
     }
 }
